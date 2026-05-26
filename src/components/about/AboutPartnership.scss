@@ -1,0 +1,205 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.about-partner {
+  background: #0d1b3e;
+  padding: 160px 0;
+  color: white;
+
+  &__inner {
+    @include container;
+  }
+
+  &__eyebrow {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: rgba(white, 0.4);
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-md;
+    color: rgba(white, 0.5);
+    margin-bottom: 80px;
+  }
+
+  // MARS card
+  &__mars {
+    background: rgba(white, 0.06);
+    border: 1px solid rgba(white, 0.1);
+    border-radius: 20px;
+    padding: 48px;
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  &__mars-logo {
+    flex: 0 0 220px;
+    height: 160px;
+    background: rgba(white, 0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(white, 0.3);
+    font-size: $font-size-xs;
+    line-height: 1.6;
+  }
+
+  &__mars-info {
+    flex: 1;
+  }
+
+  &__mars-tag {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(white, 0.4);
+    margin-bottom: 16px;
+  }
+
+  &__mars-name {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  &__mars-desc {
+    font-size: $font-size-sm;
+    color: rgba(white, 0.7);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  &__mars-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: $font-size-xs;
+    color: rgba(white, 0.5);
+    line-height: 1.6;
+
+    strong {
+      color: rgba(white, 0.8);
+      margin-right: 8px;
+    }
+  }
+
+  // Feature cards
+  &__features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+
+  &__feature {
+    background: rgba(white, 0.06);
+    border: 1px solid rgba(white, 0.08);
+    border-radius: 16px;
+    padding: 32px 36px;
+  }
+
+  &__feature-tag {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(white, 0.35);
+    margin-bottom: 12px;
+  }
+
+  &__feature-title {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  &__feature-desc {
+    font-size: $font-size-sm;
+    color: rgba(white, 0.55);
+    line-height: 1.6;
+  }
+
+  // Trademarks
+  &__trademarks {
+    border-top: 1px solid rgba(white, 0.1);
+    padding-top: 60px;
+  }
+
+  &__tm-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  &__tm-label {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(white, 0.35);
+  }
+
+  &__tm-title {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  &__tm-note {
+    font-size: $font-size-xs;
+    color: rgba(white, 0.35);
+  }
+
+  &__tm-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  &__tm-card {
+    background: rgba(white, 0.06);
+    border: 1px solid rgba(white, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__tm-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: rgba(white, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(white, 0.2);
+    font-size: $font-size-xs;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  &__tm-num {
+    font-size: $font-size-sm;
+    font-weight: 700;
+    padding: 0 24px;
+    margin-bottom: 6px;
+  }
+
+  &__tm-desc {
+    font-size: $font-size-xs;
+    color: rgba(white, 0.45);
+    padding: 0 24px 24px;
+  }
+}

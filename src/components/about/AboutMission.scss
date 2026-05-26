@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.about-mission {
+  padding: 160px 0;
+
+  &__inner {
+    @include container;
+    text-align: center;
+  }
+
+  &__label {
+    @include section-label;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-xl;
+    color: $color-gray-400;
+    margin-bottom: 80px;
+  }
+
+  &__banner {
+    background: $color-primary;
+    border-radius: 20px;
+    padding: 50px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    text-align: left;
+  }
+
+  &__banner-small {
+    font-size: $font-size-xl;
+    color: rgba(white, 0.6);
+  }
+
+  &__banner-large {
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    text-align: left;
+  }
+
+  &__card {
+    background: $color-gray-100;
+    border-radius: 20px;
+    padding: 40px 44px;
+  }
+
+  &__card-icon {
+    width: 44px;
+    height: 44px;
+    background: $color-blue-light;
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+
+  &__card-tag {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: $color-primary;
+    margin-bottom: 16px;
+  }
+
+  &__card-desc {
+    font-size: $font-size-md;
+    color: $color-gray-600;
+    line-height: 1.7;
+  }
+}

@@ -1,0 +1,85 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.about-crew {
+  padding: 160px 0 200px;
+
+  &__inner {
+    @include container;
+    text-align: center;
+  }
+
+  &__label {
+    @include section-label;
+    margin-bottom: 28px;
+  }
+
+  &__title {
+    font-size: 44px;
+    font-weight: 700;
+    color: $text-color;
+    margin-bottom: 16px;
+  }
+
+  &__desc {
+    font-size: $font-size-md;
+    color: $color-gray-400;
+    line-height: 1.7;
+    margin-bottom: 80px;
+  }
+
+  &__team-photo {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    background: $color-gray-200;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-gray-400;
+    font-size: $font-size-sm;
+    margin-bottom: 40px;
+  }
+
+  &__members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: left;
+  }
+
+  &__member-photo {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: $color-gray-200;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-gray-400;
+    font-size: $font-size-xs;
+    margin-bottom: 20px;
+  }
+
+  &__member-role {
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: $color-primary;
+    margin-bottom: 6px;
+  }
+
+  &__member-name {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  &__member-desc {
+    font-size: $font-size-xs;
+    color: $color-gray-400;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+}
