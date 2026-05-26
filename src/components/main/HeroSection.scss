@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   max-width: 1820px;
-  margin: 0 auto;
+  margin: 100px auto;
   height: 850px;
   overflow: hidden;
   border-radius: 50px;
@@ -14,7 +14,7 @@
     inset: 0;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       inset: 0;
       background: rgba($bg-color, 0.5);
