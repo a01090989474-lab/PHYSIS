@@ -1,0 +1,95 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.stats {
+  padding: 200px 0;
+
+  &__inner {
+    @include container;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    column-gap: 20px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(60% + 8px);
+      width: 1px;
+      background: rgba($text-color, 0.5);
+    }
+  }
+
+  &__header-cell {
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba($text-color, 0.5);
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    color: rgba($text-color, 0.5);
+  }
+
+  &__item {
+    padding: 70px 0;
+    border-bottom: 1px solid rgba($text-color, 0.5);
+
+    &--right {
+      padding-left: 40px;
+      align-self: start;
+      margin-top: -120px;
+      border-bottom: none;
+      position: relative;
+
+      &:not(.stats__item--last)::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 20px;
+        right: 0;
+        height: 1px;
+        background: rgba($text-color, 0.5);
+      }
+    }
+
+    &--last {
+      border-bottom: none;
+    }
+  }
+
+  &__prefix {
+    font-size: 32px;
+    font-weight: 500;
+    color: $text-color;
+  }
+
+  &__number {
+    font-size: 80px;
+    font-weight: 500;
+    color: $color-primary;
+    line-height: 1;
+    margin-bottom: 50px;
+  }
+
+  &__unit {
+    font-size: 80px;
+    font-weight: 500;
+  }
+
+  &__desc {
+    font-size: 28px;
+    color: $text-color;
+  }
+}

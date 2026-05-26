@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $section-pad-h;
+}
+
+@mixin section-padding {
+  padding: $section-pad-v $section-pad-h;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin grid-two-col($gap: 4rem) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $gap;
+  align-items: center;
+}
+
+@mixin respond-to($bp) {
+  @if $bp == md { @media (max-width: $bp-md) { @content; } }
+  @else if $bp == lg { @media (max-width: $bp-lg) { @content; } }
+  @else if $bp == xl { @media (max-width: $bp-xl) { @content; } }
+}
+
+@mixin section-label {
+  font-size: $font-size-xs;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $color-gray-400;
+}

@@ -1,0 +1,109 @@
+﻿@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.footer {
+  background: $color-primary;
+  height: 450px;
+
+  &__inner {
+    @include container;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding-top: 100px;
+    padding-bottom: 50px;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &__nav-group {
+    display: flex;
+    gap: 80px;
+
+    @include respond-to(md) {
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+  }
+
+  &__brand {
+    font-size: $font-size-xs;
+    letter-spacing: 0.12em;
+    color: #fafafa;
+    margin-bottom: 20px;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: $font-size-xs;
+    color: rgba(#fafafa, 0.5);
+    text-align: left;
+  }
+
+  &__nav-title {
+    font-size: $font-size-xs;
+    color: #fafafa;
+    margin-bottom: 20px;
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+
+    a {
+      font-size: $font-size-xs;
+      color: rgba(#fafafa, 0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #fafafa;
+      }
+    }
+  }
+
+  &__copy {
+    border-top: 1px solid rgba(#fafafa, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+    font-size: $font-size-xs;
+    color: rgba(#fafafa, 0.5);
+
+    @include respond-to(md) {
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+  }
+
+  &__copy-links {
+    display: flex;
+    gap: 24px;
+
+    a {
+      font-size: $font-size-xs;
+      color: rgba(#fafafa, 0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #fafafa;
+      }
+    }
+  }
+}

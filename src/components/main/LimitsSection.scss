@@ -1,0 +1,204 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.limits {
+  padding: 200px 0 0;
+
+  &__header {
+    @include container;
+  }
+
+  &__title {
+    font-size: 30px;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 24px;
+    color: rgba($text-color, 0.5);
+  }
+
+  &__grid {
+    @include container;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__card {
+    flex: 1;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+
+    &--up {
+      margin-top: 150px;
+    }
+    &--down {
+      margin-top: 250px;
+    }
+
+    &--visible {
+      animation: fadeInUp 0.7s ease forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    &-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    &-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba($text-color, 0.3);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: background 0.35s ease;
+    }
+
+    &-default {
+      transition: opacity 0.25s ease;
+    }
+
+    &-hover {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    &-label {
+      font-size: 24px;
+      font-weight: 500;
+      color: $bg-color;
+      margin-bottom: 6px;
+    }
+    &-desc {
+      font-size: 20px;
+      color: $bg-color;
+      line-height: 1.2;
+    }
+
+    &:hover &-overlay {
+      background: rgba($color-primary, 0.6);
+    }
+
+    &:hover &-default {
+      opacity: 0;
+    }
+
+    &:hover &-hover {
+      opacity: 1;
+    }
+  }
+
+  &__solution {
+    @include container;
+    padding-top: 160px;
+    padding-bottom: 200px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__solution-label {
+    font-size: 21px;
+    color: $color-primary;
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: $color-primary;
+    }
+  }
+
+  &__solution-title {
+    font-size: 36px;
+    color: $text-color;
+    margin-bottom: 8px;
+  }
+
+  &__solution-sub {
+    font-size: 20px;
+    color: rgba($text-color, 0.6);
+    margin-bottom: 100px;
+  }
+
+  &__solution-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: left;
+  }
+
+  &__solution-item {
+    padding: 0 45px;
+    border-right: 1px solid #b5c6df;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+
+  &__solution-item-number {
+    font-size: 16px;
+    color: rgba($text-color, 0.6);
+    margin-bottom: 20px;
+  }
+
+  &__solution-item-label {
+    font-size: 26px;
+    font-weight: 600;
+    color: $color-primary;
+    margin-bottom: 8px;
+    white-space: nowrap;
+  }
+
+  &__solution-item-desc {
+    font-size: 20px;
+    color: $text-color;
+    line-height: 1.2;
+  }
+}
