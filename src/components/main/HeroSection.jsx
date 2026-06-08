@@ -11,7 +11,7 @@ export default function HeroSection() {
           muted
           loop
           playsInline
-          poster="/images/main_hero.png"
+          poster="/images/main/main_hero.png"
         />
       </div>
       <div className="hero__content">
@@ -25,8 +25,12 @@ export default function HeroSection() {
           rapid freezing.
         </p>
         <div className="hero__actions">
-          <Link to="/contact" className="hero__btn hero__btn--primary">문의하기</Link>
-          <Link to="/hybridice" className="hero__btn hero__btn--secondary">자세히 보기</Link>
+          <Link to="/contact" className="hero__btn hero__btn--primary">
+            문의하기
+          </Link>
+          <Link to="/hybridice" className="hero__btn hero__btn--secondary">
+            자세히 보기
+          </Link>
         </div>
       </div>
     </section>

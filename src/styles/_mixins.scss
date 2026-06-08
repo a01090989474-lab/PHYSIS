@@ -7,7 +7,8 @@
 }
 
 @mixin section-padding {
-  padding: $section-pad-v $section-pad-h;
+  padding-top: $section-pad-v;
+  padding-bottom: $section-pad-v;
 }
 
 @mixin flex-center {
@@ -41,4 +42,15 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: $color-gray-400;
+}
+
+@mixin chip($margin-top: 1rem) {
+  display: inline-block;
+  margin-top: $margin-top;
+  padding: 6px 18px;
+  background: $color-primary;
+  color: $bg-color;
+  font-size: $font-size-xs;
+  font-weight: 600;
+  border-radius: 50px;
 }

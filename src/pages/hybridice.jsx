@@ -4,49 +4,78 @@ const data = {
   hero: {
     eyebrow: "하이브리드 아이스",
     title: "HYBRID ICE",
-    subtitle: "-21.3°C\n침지 동결, 100배의 속도",
-    desc: "액체소금+트레할로 없이 작동하는\n무균성 침지 동결 시스템(DIPS)",
-    image: null,
+    subtitle: (
+      <>
+        -21.3°C 침지 동결
+        <br />
+        100배의 속도
+      </>
+    ),
+    desc: (
+      <>
+        액체잘소•프레온 없이 작동하는
+        <br />
+        무공해 침지 동결 시스템 (DIPS)
+      </>
+    ),
+    image: "/images/hybrid/hero.png",
   },
   intro: {
     title: "HYBRIDICE",
-    subtitle: "Explanation and Operating Principle of Hybrid Ice",
-    highlight: "23.5% 고염도 염수소",
-    desc: "-21.3°C로 유지되는 슬러리 침지 동결 동결 시스템입니다. HYBRIDICE는 -21.3°C의 유지되는 슬러리 아래에 암반 및 틀 안에서 침지 동결 시킵니다. 소금(NaCl) 기반의 무균해 염수를 이용합니다.",
+    subtitle: (
+      <>
+        <strong>23.5% 고염도 염수</strong>를 −21.3℃로 유지하는 슬러쉬 기반 침지
+        동결 시스템입니다.
+        <br />
+        <br />
+        액체질소나 프레온 같은 화학 냉매를 사용하지 않고,
+        <br />
+        <strong>소금(NaCl) 기반의 무공해 염수</strong>만으로 작동합니다.
+      </>
+    ),
+    subtitleLarge: true,
+    caption: "Explanation and Operating Principle of Hybrid Ice",
   },
   features: {
-    image: null,
     items: [
       {
         number: "01",
         title: "QUALITY",
-        subtitle: "새로 그대로, 짧아 그대로",
-        desc: "염분 함량이 전혀 없는 첨단 냉동 방식으로 어류에 제품의 신선함을 최대한 보존합니다. HYBRIDICE는 -21.3°C의 유지되는 슬러리 아래에 암반 침지 동결 시킵니다. 기존 동결에 비하여 짧은 시간에 무균성 침지 동결됩니다.",
+        subtitle: "세포 그대로, 풍미 그대로",
+        desc: "일반 냉동은 천천히 어는 동안 큰 얼음 결정이 자라며 세포벽을 찢습니다. HybridIce는 −21.3℃ 슬러리에 직접 침지하는 방식으로 미세 결정 동결을 구현해 세포 구조 손상을 차단합니다. 해동 시 드립이 거의 없고, 식감과 풍미가 생물에 가까운 상태로 보존됩니다.",
+        image: "/images/hybrid/con1_01.jpg",
+        chip: "드립 손실 ≈0%",
       },
       {
         number: "02",
         title: "SHELF LIFE",
-        subtitle: "보관 기간이 길어 줄게",
-        desc: "기존 동결 방식보다 장기간 선도를 유지합니다.",
+        subtitle: "보관 기간 대폭 증가",
+        desc: "미세 결정 동결은 미생물 활동과 산화 반응을 동시에 차단합니다 일반 냉동 대비 신선도 유지 기간이 크게 늘어나, 재고 손실과 폐기율이 감소하고 원거리 수출과 장기 보관이 가능해집니다.",
+        image: "/images/hybrid/con1_02.png",
+        chip: "신선도 유지",
       },
       {
         number: "03",
         title: "EFFICIENCY",
-        subtitle: "차원이 다른 물고 시간",
-        desc: "100배 빠른 동결로 생산성을 극대화합니다.",
+        subtitle: "처리량과 원가의 동시 개선",
+        desc: "23.5% 고염도 슬러시에 직접 침지라는 DIPS 방식은 일반 급랭 대비 100배 빠른 동결 속소를 구현합니다. 처리량 한계가 사라지면서 성수기 대응이 가능해지고, NaCl기반 무공해 냉매를 재활용하는 구조라 액체 질소•프레온 대비 운영 원가가 크게 절감됩니다.",
+        image: "/images/tech_hybrid_03.png",
+        chip: "동결속도 100배",
       },
       {
         number: "04",
         title: "SUSTAINABILITY",
         subtitle: "친환경 인증 솔루션",
-        desc: "친환경 인증을 받은 지속 가능한 냉동 솔루션입니다.",
+        desc: "액체질소나 프레온 같은 화학 냉매를 사용하지 않고, 소금(NaCl) 기반의 무공해 염수만으로 -21.3℃를 구현합니다. 탄소 배출이 없는 친환경 냉동 솔루션으로 친환경 인증 요구에 대응하며 지속적인 기업 가치를 창출합니다.",
+        image: "/images/tech_hybrid_04.png",
+        chip: "프레온·액체질소 사용 ZERO",
       },
     ],
   },
   tech: {
     name: "DIPS",
-    fullname: "Dipping Ice Processing System",
-    desc: '이동을 동시에 적 및 소 선박에서도 응용이 가능한 차세대 침지 동결 기술입니다.<br/>또한 선박 전체 동시에 동결 냉동 냉동기를 밖에 가린 강대하게 기반의 <strong class="product-tech__emphasis">동결부 동결 최적*을</strong> 공개적으로 제소합니다.',
+    fullname: "Dipping Ice Processing System —",
+    desc: '식품을 슬러시에 직접 담가 순간적으로 동결하는 차세대 침지 동결 기술입니다.<br/>표면 전체가 동시에 냉기와 접촉하기 때문에 기존 급랭 방식의 한계인 <span class="product-tech__emphasis">중심부 동결 지연*</span> 을 근본적으로 해소합니다.',
   },
   benefits: {
     title: "사업장에 가져오는 4가지 변화",
@@ -54,45 +83,53 @@ const data = {
     items: [
       {
         number: "01",
-        title: "매출 증대",
-        desc: "빠른 동결로 처리량 증가, 고급 수산물 프리미엄 수출 경쟁력 강화",
+        title: "매출보호",
+        desc: "해동 시 빠져나가던 5-10%의 드립 손실을 방지할 수 있습니다.",
+        image: null,
+        chip: "출하중량 + 5~10%",
       },
       {
         number: "02",
-        title: "운영 비용 절감",
+        title: "운영비 절감",
         desc: "에너지 효율화, 폐기물 최소화로 운영 비용을 절감합니다.",
+        image: null,
+        chip: "냉매 보충 비용 ZERO",
       },
       {
         number: "03",
         title: "시장 확대",
-        desc: "고품질 냉동으로 글로벌 시장 진입 가능성을 높입니다.",
+        desc: "신선도 유지 기간이 늘어 원거리 수출 장기 보관이 가능해집니다.",
+        image: null,
+        chip: "신선도 유지",
       },
       {
         number: "04",
         title: "리스크 관리",
         desc: "선도 유지 기간 연장으로 물류 리스크를 줄입니다.",
+        image: null,
+        chip: "친환경 인증 충족",
       },
     ],
   },
   models: {
     title: "사업장 규모에 맞는 모델 선택",
-    note: "자사의 기업규모를 선택하시고, 설비에 적합한 전문 컨설팅 후 모델 을 찾을 수 있습니다.",
+    note: "Find the model that fits yours operation",
     items: [
       {
-        series: "PHD - F100AB",
+        series: "PHD - Y200KR",
         name: "컴팩트 모델",
         capacity: "2",
         unit: "톤/일",
         specs: [
           { label: "동결 온도", value: "-21.3°C" },
           { label: "슬러리 용량", value: "640L" },
-          { label: "냉동 전력", value: "≤10.5kw" },
+          { label: "소비 전력", value: "≈10.5kw" },
           { label: "외형 치수", value: "1320×680×2030" },
-          { label: "본체 중량", value: "≤70kg" },
+          { label: "본체 중량", value: "≈110kg" },
         ],
       },
       {
-        series: "PHD - F100AB",
+        series: "PHD - Y350KR",
         name: "표준 모델",
         capacity: "3-5",
         unit: "톤/일",
@@ -100,9 +137,9 @@ const data = {
         specs: [
           { label: "동결 온도", value: "-21.3°C" },
           { label: "슬러리 용량", value: "1000L" },
-          { label: "냉동 전력", value: "≤13kw" },
-          { label: "외형 치수", value: "1320×680×2964" },
-          { label: "본체 중량", value: "≤140kg" },
+          { label: "소비 전력", value: "≈13kw" },
+          { label: "외형 치수", value: "1200×918×2904" },
+          { label: "본체 중량", value: "≈140kg" },
         ],
       },
       {
@@ -113,16 +150,16 @@ const data = {
         specs: [
           { label: "동결 온도", value: "-21.3°C" },
           { label: "슬러리 용량", value: "5톤" },
-          { label: "냉동 전력", value: "≤10.5kw" },
+          { label: "소비 전력", value: "≈10.5kw" },
           { label: "외형 치수", value: "1320×680×3000" },
-          { label: "본체 중량", value: "110kg" },
+          { label: "본체 중량", value: "≈110kg" },
         ],
       },
     ],
   },
   applications: {
     title: "현장에서 증명된 활용 분야",
-    subtitle: "Where Hybridice works effectively",
+    subtitle: "Where HybridIce works best",
     items: [
       {
         category: "FISHERY",
@@ -131,33 +168,36 @@ const data = {
       },
       {
         category: "LIVESTOCK",
-        title: "축산·가금류",
-        desc: "도살 후 신속하게 냉각 처리하여 백색, 붉은색 육류 선도를 유지.",
+        title: "정육·가공육",
+        desc: "도축 후 신속하게 냉각 처리하여 신선도와 풍미 보존, 육즙 손실 최소화.",
       },
       {
         category: "PROCESSED FOOD",
         title: "냉동 가공 식품",
-        desc: "판매 후 수 십시간 이상 냉동 상태 유지로 그래로 보호.",
+        desc: "만두 튀김 반찬류 등 다양한 가공식품의 식감과 외관을 그대로 보존.",
       },
       {
         category: "EXPORT",
         title: "콜드체인 수출",
-        desc: "수출 후 3주 이상이 지나도 현지에서 살아있는 느낌의 신선도 줄.",
+        desc: "장거리 운송 수출 시 신선도 유지. 글로벌 바이어의 친환경 인증 요구 충족.",
       },
     ],
   },
   crosspromo: {
     title: "PHYSIS의 다른 솔루션도 살펴보세요",
+    subtitle: "Explore other Physis solutions",
     items: [
       {
+        tname: "LIVING CHILL",
         name: "Kuraban",
-        desc: "16톤 분량의 눈의 급속 슬러리아이스.",
+        desc: "얼리지 않는 -2℃ 살아있는 냉장 시스템",
         path: "/kuraban",
         image: null,
       },
       {
+        tname: "FISH - SAFE ICE",
         name: "Sea Snow",
-        desc: "16톤 분량의 눈의 급속 슬러리아이스.",
+        desc: "어류 친화 1% 염도 슬러시 아이스",
         path: "/seasnow",
         image: null,
       },

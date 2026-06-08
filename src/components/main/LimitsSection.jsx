@@ -7,28 +7,28 @@ const limits = [
     label: "드립 손실",
     hoverText:
       "해동 시 빠져나가는 5~10% 중량 손실로 풍미와 식감, 상품성까지 함께 떨어집니다. ",
-    image: "/images/main_con1_01.png",
+    image: "/images/main/main_con1_01.png",
   },
   {
     id: 2,
     label: "동결 속도 한계",
     hoverText:
       "중심부까지 얼리는 데 수 시간이 소요되어 처리량과 생산성이 한계에 부딪힙니다.",
-    image: "/images/main_con1_02.png",
+    image: "/images/main/main_con1_02.png",
   },
   {
     id: 3,
     label: "높은 운영 비용",
     hoverText:
       "액체질소·프레온 냉매는 지속적인 비용이 발생하고 공급 차질 시 생산 중단 리스크가 따릅니다.",
-    image: "/images/main_con1_03.png",
+    image: "/images/main/main_con1_03.png",
   },
   {
     id: 4,
     label: "환경 규제 부담",
     hoverText:
       "프레온 계열 냉매는 단계적으로 퇴출되며, 수출 거래처와 대형 유통사는 친환경 인증을 요구하고 있습니다.",
-    image: "/images/main_con1_04.png",
+    image: "/images/main/main_con1_04.png",
   },
 ];
 

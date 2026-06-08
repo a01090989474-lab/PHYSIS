@@ -1,23 +1,33 @@
-
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './ProductPage.scss'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { BiSolidUpArrow } from "react-icons/bi";
+import "./ProductPage.scss";
 
 // ── Hero ──────────────────────────────────────────────
 function HeroSection({ hero }) {
   return (
     <section className="product-hero">
       <div className="product-hero__content">
-        {hero.eyebrow && <p className="product-hero__eyebrow">{hero.eyebrow}</p>}
         <h1 className="product-hero__title">{hero.title}</h1>
-        {hero.subtitle && <p className="product-hero__subtitle">{hero.subtitle}</p>}
+        {hero.eyebrow && (
+          <p className="product-hero__eyebrow">{hero.eyebrow}</p>
+        )}
+        {hero.subtitle && (
+          <p className="product-hero__subtitle">{hero.subtitle}</p>
+        )}
         {hero.desc && <p className="product-hero__desc">{hero.desc}</p>}
       </div>
-      {hero.image && (
-        <img className="product-hero__image" src={hero.image} alt={hero.title} />
-      )}
+      <div className="product-hero__media">
+        {hero.image && (
+          <img
+            className="product-hero__image"
+            src={hero.image}
+            alt={hero.title}
+          />
+        )}
+      </div>
     </section>
-  )
+  );
 }
 
 // ── Intro ─────────────────────────────────────────────
@@ -27,9 +37,19 @@ function IntroSection({ intro }) {
       <div className="product-intro__inner">
         <div>
           <p className="product-intro__label">{intro.title}</p>
-          {intro.subtitle && <p className="product-intro__sublabel">{intro.subtitle}</p>}
+          {intro.caption && (
+            <p className="product-intro__caption">{intro.caption}</p>
+          )}
+          {intro.subtitle && !intro.subtitleLarge && (
+            <p className="product-intro__sublabel">{intro.subtitle}</p>
+          )}
         </div>
         <div className="product-intro__body">
+          {intro.subtitle && intro.subtitleLarge && (
+            <p className="product-intro__sublabel product-intro__sublabel--large">
+              {intro.subtitle}
+            </p>
+          )}
           {intro.highlight && (
             <span className="product-intro__highlight">{intro.highlight}</span>
           )}
@@ -37,24 +57,29 @@ function IntroSection({ intro }) {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Features ──────────────────────────────────────────
 function FeaturesSection({ features }) {
-  const [openIndex, setOpenIndex] = useState(0)
+  const [openIndex, setOpenIndex] = useState(0);
+  const activeImage = features.items[openIndex]?.image ?? null;
 
   return (
     <section className="product-features">
       <div className="product-features__inner">
-        {features.image && (
-          <img className="product-features__image" src={features.image} alt="" />
-        )}
+        <div className="product-features__image-wrap">
+          {activeImage ? (
+            <img className="product-features__image" src={activeImage} alt="" />
+          ) : (
+            <div className="product-features__image-placeholder" />
+          )}
+        </div>
         <ul className="product-features__list">
           {features.items.map((item, i) => (
             <li key={i} className="feature-item">
               <button
-                className="feature-item__header"
+                className={`feature-item__header${openIndex === i ? " feature-item__header--active" : ""}`}
                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
               >
                 <div className="feature-item__meta">
@@ -64,21 +89,28 @@ function FeaturesSection({ features }) {
                     <p className="feature-item__subtitle">{item.subtitle}</p>
                   </div>
                 </div>
-                <span className={`feature-item__toggle${openIndex === i ? ' feature-item__toggle--open' : ''}`}>
-                  ▼
+                <span
+                  className={`feature-item__toggle${openIndex === i ? " feature-item__toggle--open" : ""}`}
+                >
+                  <BiSolidUpArrow />
                 </span>
               </button>
               {item.desc && (
-                <p className={`feature-item__body${openIndex === i ? ' feature-item__body--visible' : ''}`}>
-                  {item.desc}
-                </p>
+                <div
+                  className={`feature-item__body${openIndex === i ? " feature-item__body--visible" : ""}`}
+                >
+                  <p>{item.desc}</p>
+                  {item.chip && (
+                    <span className="feature-item__chip">{item.chip}</span>
+                  )}
+                </div>
               )}
             </li>
           ))}
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Tech ──────────────────────────────────────────────
@@ -86,16 +118,21 @@ function TechSection({ tech }) {
   return (
     <section className="product-tech">
       <div className="product-tech__inner">
-        <div>
+        <div className="product-tech__col">
           <p className="product-tech__name">{tech.name}</p>
-          <p className="product-tech__fullname">{tech.fullname}</p>
         </div>
-        <p className="product-tech__desc"
-          dangerouslySetInnerHTML={{ __html: tech.desc }}
-        />
+        <div className="product-tech__col product-tech__col--right">
+          {tech.fullname && (
+            <p className="product-tech__fullname">{tech.fullname}</p>
+          )}
+          <p
+            className="product-tech__desc"
+            dangerouslySetInnerHTML={{ __html: tech.desc }}
+          />
+        </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Benefits ──────────────────────────────────────────
@@ -104,23 +141,39 @@ function BenefitsSection({ benefits }) {
     <section className="product-benefits">
       <div className="product-benefits__inner">
         <div className="product-benefits__head">
-          <p className="product-benefits__label">{benefits.subtitle}</p>
           <h2 className="product-benefits__title">{benefits.title}</h2>
+          <p className="product-benefits__label">{benefits.subtitle}</p>
         </div>
         <ul className="product-benefits__grid">
           {benefits.items.map((item, i) => (
             <li key={i} className="benefit-card">
+              {item.image ? (
+                <img
+                  className="benefit-card__image"
+                  src={item.image}
+                  alt={item.title}
+                />
+              ) : (
+                <div className="benefit-card__image" />
+              )}
               <p className="benefit-card__number">{item.number}</p>
               {item.icon && <p className="benefit-card__icon">{item.icon}</p>}
               <p className="benefit-card__title">{item.title}</p>
               <p className="benefit-card__desc">{item.desc}</p>
-              {item.link && <a className="benefit-card__link" href={item.link}>자세히 보기</a>}
+              {item.chip && (
+                <span className="benefit-card__chip">{item.chip}</span>
+              )}
+              {item.link && (
+                <a className="benefit-card__link" href={item.link}>
+                  자세히 보기
+                </a>
+              )}
             </li>
           ))}
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Models ────────────────────────────────────────────
@@ -134,7 +187,10 @@ function ModelsSection({ models }) {
         {models.note && <p className="product-models__note">{models.note}</p>}
         <ul className="product-models__grid">
           {models.items.map((item, i) => (
-            <li key={i} className={`model-card${item.featured ? ' model-card--featured' : ''}`}>
+            <li
+              key={i}
+              className={`model-card${item.featured ? " model-card--featured" : ""}`}
+            >
               {item.featured && <span className="model-card__badge">추천</span>}
               <p className="model-card__series">{item.series}</p>
               <p className="model-card__name">{item.name}</p>
@@ -157,7 +213,7 @@ function ModelsSection({ models }) {
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Applications ──────────────────────────────────────
@@ -170,12 +226,22 @@ function ApplicationsSection({ applications }) {
         <ul className="product-applications__grid">
           {applications.items.map((item, i) => (
             <li key={i} className="app-card">
-              {item.image
-                ? <img className="app-card__image" src={item.image} alt={item.title} />
-                : <div className="app-card__image" style={{ background: '#ccc' }} />
-              }
+              {item.image ? (
+                <img
+                  className="app-card__image"
+                  src={item.image}
+                  alt={item.title}
+                />
+              ) : (
+                <div
+                  className="app-card__image"
+                  style={{ background: "#ccc" }}
+                />
+              )}
               <div className="app-card__overlay">
-                {item.category && <p className="app-card__category">{item.category}</p>}
+                {item.category && (
+                  <p className="app-card__category">{item.category}</p>
+                )}
                 <p className="app-card__title">{item.title}</p>
                 {item.desc && <p className="app-card__desc">{item.desc}</p>}
               </div>
@@ -184,7 +250,7 @@ function ApplicationsSection({ applications }) {
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Cross Promo ───────────────────────────────────────
@@ -198,10 +264,15 @@ function CrossPromoSection({ crosspromo }) {
             <li key={i}>
               <Link to={item.path} className="promo-card">
                 {item.image && (
-                  <img className="promo-card__image" src={item.image} alt={item.name} />
+                  <img
+                    className="promo-card__image"
+                    src={item.image}
+                    alt={item.name}
+                  />
                 )}
                 <div className="promo-card__content">
                   <div>
+                    <p className="promo-card__name">{item.tname}</p>
                     <p className="promo-card__name">{item.name}</p>
                     <p className="promo-card__desc">{item.desc}</p>
                   </div>
@@ -213,21 +284,23 @@ function CrossPromoSection({ crosspromo }) {
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 // ── ProductPage (조합) ────────────────────────────────
 export default function ProductPage({ data }) {
   return (
     <>
-      {data.hero         && <HeroSection         hero={data.hero} />}
-      {data.intro        && <IntroSection        intro={data.intro} />}
-      {data.features     && <FeaturesSection     features={data.features} />}
-      {data.tech         && <TechSection         tech={data.tech} />}
-      {data.benefits     && <BenefitsSection     benefits={data.benefits} />}
-      {data.models       && <ModelsSection       models={data.models} />}
-      {data.applications && <ApplicationsSection applications={data.applications} />}
-      {data.crosspromo   && <CrossPromoSection   crosspromo={data.crosspromo} />}
+      {data.hero && <HeroSection hero={data.hero} />}
+      {data.intro && <IntroSection intro={data.intro} />}
+      {data.features && <FeaturesSection features={data.features} />}
+      {data.tech && <TechSection tech={data.tech} />}
+      {data.benefits && <BenefitsSection benefits={data.benefits} />}
+      {data.models && <ModelsSection models={data.models} />}
+      {data.applications && (
+        <ApplicationsSection applications={data.applications} />
+      )}
+      {data.crosspromo && <CrossPromoSection crosspromo={data.crosspromo} />}
     </>
-  )
+  );
 }
