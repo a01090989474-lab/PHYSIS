@@ -74,8 +74,7 @@ const data = {
   },
   tech: {
     name: "DIPS",
-    fullname: "Dipping Ice Processing System —",
-    desc: '식품을 슬러시에 직접 담가 순간적으로 동결하는 차세대 침지 동결 기술입니다.<br/>표면 전체가 동시에 냉기와 접촉하기 때문에 기존 급랭 방식의 한계인 <span class="product-tech__emphasis">중심부 동결 지연*</span> 을 근본적으로 해소합니다.',
+    desc: 'Dipping Ice Processing System —<br/>식품을 슬러시에 직접 담가 순간적으로 동결하는 차세대 침지 동결 기술입니다.<br/>표면 전체가 동시에 냉기와 접촉하기 때문에 기존 급랭 방식의 한계인 <span class="product-tech__emphasis">중심부 동결 지연*</span> 을 근본적으로 해소합니다.',
   },
   benefits: {
     title: "사업장에 가져오는 4가지 변화",
@@ -113,13 +112,14 @@ const data = {
   },
   models: {
     title: "사업장 규모에 맞는 모델 선택",
-    note: "Find the model that fits yours operation",
+    subtitle: "Find the model that fits yours operation",
     items: [
       {
         series: "PHD - Y200KR",
         name: "컴팩트 모델",
         capacity: "2",
         unit: "톤/일",
+        desc: '<span class="model-card__desc-em">소•중규모 사업장</span>에 적합.<br/>도입 진입 장벽이 낮은 표준 입문 모델.',
         specs: [
           { label: "동결 온도", value: "-21.3°C" },
           { label: "슬러리 용량", value: "640L" },
@@ -134,6 +134,7 @@ const data = {
         capacity: "3-5",
         unit: "톤/일",
         featured: true,
+        desc: '<span class="model-card__desc-em">중•대규모 사업장</span>에 많이 도입 되는 모델.<br/>처리량과 운영 효율의 균형이 우수.',
         specs: [
           { label: "동결 온도", value: "-21.3°C" },
           { label: "슬러리 용량", value: "1000L" },
@@ -147,6 +148,7 @@ const data = {
         name: "대용량 모델",
         capacity: "10-20",
         unit: "톤/일",
+        desc: '<span class="model-card__desc-em">산업용 대규모 사업장</span>에 적합.<br/>원양수산•콜드체인•수출 가공 공장용.',
         specs: [
           { label: "동결 온도", value: "-21.3°C" },
           { label: "슬러리 용량", value: "5톤" },
@@ -164,21 +166,25 @@ const data = {
       {
         category: "FISHERY",
         title: "양식·연근해 수산",
+        image: "/images/hybrid/con4_01.png",
         desc: "넙치 등 고급어 최상급 신선도 유지, 산소 사용 없이 효과적으로 선도를 유지.",
       },
       {
         category: "LIVESTOCK",
         title: "정육·가공육",
+        image: "/images/hybrid/con4_02.png",
         desc: "도축 후 신속하게 냉각 처리하여 신선도와 풍미 보존, 육즙 손실 최소화.",
       },
       {
         category: "PROCESSED FOOD",
         title: "냉동 가공 식품",
+        image: "/images/hybrid/con4_03.png",
         desc: "만두 튀김 반찬류 등 다양한 가공식품의 식감과 외관을 그대로 보존.",
       },
       {
         category: "EXPORT",
         title: "콜드체인 수출",
+        image: "/images/hybrid/con4_04.png",
         desc: "장거리 운송 수출 시 신선도 유지. 글로벌 바이어의 친환경 인증 요구 충족.",
       },
     ],
@@ -192,14 +198,14 @@ const data = {
         name: "Kuraban",
         desc: "얼리지 않는 -2℃ 살아있는 냉장 시스템",
         path: "/kuraban",
-        image: null,
+        image: "/images/kuraban_02.jpg",
       },
       {
         tname: "FISH - SAFE ICE",
         name: "Sea Snow",
         desc: "어류 친화 1% 염도 슬러시 아이스",
         path: "/seasnow",
-        image: null,
+        image: "/images/main_con2_03.png",
       },
     ],
   },

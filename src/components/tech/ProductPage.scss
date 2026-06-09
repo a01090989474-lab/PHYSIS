@@ -78,7 +78,8 @@
 
 // ── Intro ─────────────────────────────────────────────
 .product-intro {
-  @include section-padding;
+  padding-top: 200px;
+  padding-bottom: 150px;
 
   &__inner {
     @include container;
@@ -95,13 +96,17 @@
     font-size: 40px;
     font-weight: 600;
     color: $text-color;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   &__caption {
     font-size: 21px;
+    font-weight: 400;
     color: rgba($text-color, 0.7);
     margin-top: 4px;
     line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   &__sublabel {
@@ -139,7 +144,9 @@
 
 // ── Features ──────────────────────────────────────────
 .product-features {
-  @include section-padding;
+  padding: 150px 0;
+  border-top: 1px solid $color-gray-200;
+  border-bottom: 1px solid $color-gray-200;
   &__inner {
     @include container;
     @include grid-two-col(5rem);
@@ -237,11 +244,9 @@
   &__toggle {
     font-size: 20px;
     color: $color-gray-400;
-    margin-top: -8px;
     transition:
       transform 0.25s,
       color 0.25s;
-    flex-shrink: 0;
 
     &--open {
       color: $color-primary;
@@ -250,7 +255,7 @@
   }
 
   &__body {
-    font-size: 22px;
+    font-size: 20px;
     color: $text-color;
     line-height: 1.2;
     padding-top: 30px;
@@ -271,14 +276,15 @@
 
 // ── Tech ──────────────────────────────────────────────
 .product-tech {
-  @include section-padding;
+  padding-top: 150px;
+  padding-bottom: 200px;
   color: $color-primary;
 
   &__inner {
     @include container;
     display: grid;
     grid-template-columns: auto 1fr;
-    align-items: center;
+    align-items: start;
 
     @include respond-to(lg) {
       grid-template-columns: 1fr;
@@ -298,12 +304,6 @@
     color: $color-primary;
   }
 
-  &__fullname {
-    @include section-label;
-    color: $text-color;
-    margin-bottom: 1.5rem;
-  }
-
   &__desc {
     font-size: 28px;
     color: $text-color;
@@ -318,7 +318,7 @@
 
 // ── Benefits ──────────────────────────────────────────
 .product-benefits {
-  @include section-padding;
+  padding: 200px 0;
 
   &__inner {
     @include container;
@@ -328,16 +328,21 @@
     margin-bottom: 4rem;
   }
 
-  &__label {
-    @include section-label;
-    margin-bottom: 0.75rem;
+  &__title {
+    font-size: 40px;
+    font-weight: 600;
+    color: $text-color;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 4px;
   }
 
-  &__title {
-    font-size: $font-size-2xl;
-    font-weight: 700;
-    color: $text-color;
-    letter-spacing: -0.02em;
+  &__label {
+    font-size: 21px;
+    font-weight: 400;
+    color: $color-gray-400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   &__grid {
@@ -355,54 +360,63 @@
 }
 
 .benefit-card {
-  border-top: 2px solid $color-primary;
-  padding: 2rem 1rem;
+  position: relative;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+
+  &__number {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: $color-primary;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 400;
+    z-index: 1;
+  }
+
+  &__box {
+    background: #fff;
+    border: 1px solid #e7edf5;
+    border-radius: 40px;
+
+    padding: 3rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+  }
 
   &__image {
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
-    background: $color-gray-200;
-    margin-bottom: 1.5rem;
+    background: transparent;
+    margin-bottom: 35px;
   }
-
-  &__number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: $color-primary;
-    color: $bg-color;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: $font-size-xs;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    margin-bottom: 1.25rem;
-    flex-shrink: 0;
-  }
-
-  &__icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
   &__title {
-    font-size: $font-size-base;
-    font-weight: 700;
+    font-size: 26px;
+    font-weight: 600;
     color: $text-color;
-    margin-bottom: 0.5rem;
+    margin-bottom: 25px;
   }
 
   &__desc {
-    font-size: $font-size-xs;
-    color: $color-gray-600;
-    line-height: 1.8;
+    font-size: 21px;
+    color: $text-color;
+    line-height: 1.2;
+    flex: 1;
+    margin-bottom: 25px;
   }
 
   &__chip {
@@ -422,33 +436,31 @@
 
 // ── Models ────────────────────────────────────────────
 .product-models {
-  @include section-padding;
-  background: $color-gray-100;
+  padding: 200px 0;
 
   &__inner {
     @include container;
   }
 
   &__head {
-    margin-bottom: 1rem;
-  }
-
-  &__note {
-    font-size: $font-size-xs;
-    color: $color-gray-400;
     margin-bottom: 3rem;
-
-    &::before {
-      content: "▸ ";
-    }
   }
 
   &__title {
-    font-size: $font-size-2xl;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 600;
     color: $text-color;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 4px;
+  }
+
+  &__sub {
+    font-size: 21px;
+    font-weight: 400;
+    color: $color-gray-400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   &__grid {
@@ -463,149 +475,187 @@
 }
 
 .model-card {
-  background: $bg-color;
-  border-radius: 8px;
-  border: 1px solid $color-gray-200;
+  background: #fff;
+  border-radius: 35px;
+  border: 1.5px solid $color-gray-200;
   padding: 2.5rem 2rem;
   position: relative;
-  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.22s,
+    transform 0.22s;
 
   &:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border-color: $color-primary;
+    transform: translateY(-6px);
   }
 
   &--featured {
-    background: $color-primary;
     border-color: $color-primary;
-    color: $bg-color;
+    border-width: 2px;
+    padding-top: 3.5rem;
 
-    .model-card__series,
-    .model-card__capacity,
-    .model-card__capacity-unit,
-    .model-card__spec-label,
-    .model-card__spec-value {
-      color: rgba($bg-color, 0.9);
-    }
-
-    .model-card__name {
-      color: $bg-color;
-    }
-    .model-card__badge {
-      display: block;
-    }
     .model-card__cta {
-      background: $bg-color;
-      color: $color-primary;
+      background: transparent;
+      color: $text-color;
+      border-color: $color-primary;
     }
   }
 
   &__badge {
-    display: none;
     position: absolute;
-    top: -1px;
+    top: -15px;
     right: 1.5rem;
-    background: #ffd700;
-    color: $text-color;
-    font-size: $font-size-xs;
-    font-weight: 700;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0 0 4px 4px;
-    letter-spacing: 0.05em;
+    background: $color-primary;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-radius: 25px;
+    white-space: nowrap;
   }
 
   &__series {
     @include section-label;
     color: $color-gray-400;
-    margin-bottom: 0.5rem;
+    margin-bottom: 15px;
+    font-size: 21px;
   }
 
   &__name {
-    font-size: $font-size-md;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 600;
     color: $text-color;
-    margin-bottom: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid $color-gray-200;
+    margin-bottom: 30px;
   }
 
   &__capacity-label {
-    font-size: $font-size-xs;
+    font-size: 21px;
     color: $color-gray-400;
-    margin-bottom: 0.25rem;
+    margin-bottom: 15px;
+  }
+
+  &__capacity-row {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    margin-bottom: 30px;
   }
 
   &__capacity {
-    font-size: $font-size-3xl;
-    font-weight: 800;
-    color: $text-color;
-    letter-spacing: -0.03em;
-    line-height: 1;
+    font-size: 50px;
+    font-weight: 600;
+    color: $color-primary;
   }
 
   &__capacity-unit {
-    font-size: $font-size-sm;
-    color: $color-gray-600;
-    margin-bottom: 2rem;
+    font-size: 24px;
+    color: $color-gray-400;
+  }
+
+  &__desc {
+    font-size: 20px;
+    color: $color-gray-400;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    font-weight: 400;
+  }
+
+  &__desc-em {
+    color: $color-primary;
+    font-weight: 400;
   }
 
   &__specs {
     border-top: 1px solid $color-gray-200;
-    padding-top: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 0.5rem;
-    margin-bottom: 2rem;
+    padding-top: 30px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed $color-gray-200;
+
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   &__spec-label {
-    font-size: $font-size-xs;
-    color: $color-gray-400;
-    margin-bottom: 0.25rem;
+    font-size: 24px;
+    color: $text-color;
   }
 
   &__spec-value {
-    font-size: $font-size-sm;
+    font-size: 24px;
     font-weight: 600;
     color: $text-color;
   }
 
   &__cta {
+    display: block;
     width: 100%;
-    padding: 0.875rem;
-    border-radius: 4px;
-    background: $text-color;
-    color: $bg-color;
-    font-size: $font-size-xs;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    padding: 15px;
+    border-radius: 30px;
+    background: transparent;
+    color: $text-color;
+    font-size: 24px;
+    font-weight: 400;
     text-align: center;
     cursor: pointer;
-    transition: opacity 0.2s;
-    border: none;
+    border: 1.5px solid $color-primary;
+    transition:
+      border-color 0.2s,
+      background 0.2s,
+      color 0.2s;
 
     &:hover {
-      opacity: 0.85;
+      border-color: $color-primary;
+      background: $color-primary;
+      color: #fff;
     }
   }
 }
 
 // ── Applications ──────────────────────────────────────
 .product-applications {
-  @include section-padding;
+  padding: 200px 0;
 
   &__inner {
     @include container;
   }
 
-  &__label {
-    @include section-label;
-    margin-bottom: 0.75rem;
+  &__head {
+    margin-bottom: 3rem;
   }
 
   &__title {
-    font-size: $font-size-2xl;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 600;
     color: $text-color;
-    letter-spacing: -0.02em;
-    margin-bottom: 3rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 4px;
+  }
+
+  &__label {
+    font-size: 21px;
+    font-weight: 400;
+    color: $color-gray-400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   &__grid {
@@ -623,67 +673,89 @@
 }
 
 .app-card {
-  position: relative;
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 6px;
-  aspect-ratio: 3 / 4;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  &__image-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s;
+    display: block;
+
+    &--empty {
+      background: $color-gray-200;
+    }
   }
 
   &:hover &__image {
     transform: scale(1.04);
   }
 
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
-    padding: 1.5rem 1rem;
+  &__body {
+    padding: 1.25rem 1.25rem 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    flex: 1;
   }
 
   &__category {
     @include section-label;
-    color: rgba($bg-color, 0.6);
-    margin-bottom: 0.375rem;
+    color: $color-gray-400;
+    margin-bottom: 0.4rem;
   }
 
   &__title {
     font-size: $font-size-base;
     font-weight: 700;
-    color: $bg-color;
+    color: $text-color;
     margin-bottom: 0.5rem;
   }
 
   &__desc {
     font-size: $font-size-xs;
-    color: rgba($bg-color, 0.75);
+    color: $color-gray-600;
     line-height: 1.7;
   }
 }
 
 // ── Cross Promo ───────────────────────────────────────
 .product-crosspromo {
-  @include section-padding;
-  background: $color-gray-100;
+  padding: 200px 0;
 
   &__inner {
     @include container;
   }
 
-  &__title {
-    font-size: $font-size-xl;
-    font-weight: 700;
-    color: $text-color;
+  &__head {
     text-align: center;
     margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 40px;
+    font-weight: 600;
+    color: $text-color;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 4px;
+  }
+
+  &__subtitle {
+    font-size: 21px;
+    font-weight: 400;
+    color: $color-gray-400;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   &__grid {
@@ -699,14 +771,18 @@
 
 .promo-card {
   background: $bg-color;
-  border-radius: 8px;
+  border-radius: 16px;
+  border: 1.5px solid $color-gray-200;
   overflow: hidden;
   display: grid;
   grid-template-columns: 200px 1fr;
-  transition: box-shadow 0.2s;
+  transition:
+    border-color 0.22s,
+    transform 0.22s;
 
   &:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-color: $color-primary;
+    transform: translateY(-4px);
   }
 
   @include respond-to(md) {
@@ -721,10 +797,17 @@
   }
 
   &__content {
-    padding: 1.75rem;
+    padding: 2.5rem 1.75rem;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__tname {
+    @include section-label;
+    color: $color-primary;
+    margin-bottom: 0.25rem;
   }
 
   &__name {
@@ -738,19 +821,11 @@
     font-size: $font-size-xs;
     color: $color-gray-600;
     line-height: 1.7;
-    margin-bottom: 1.5rem;
   }
 
-  &__link {
-    font-size: $font-size-xs;
-    font-weight: 600;
+  &__arrow {
+    font-size: 1.25rem;
     color: $color-primary;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-
-    &::after {
-      content: "→";
-    }
+    flex-shrink: 0;
   }
 }

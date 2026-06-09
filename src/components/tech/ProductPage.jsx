@@ -122,9 +122,6 @@ function TechSection({ tech }) {
           <p className="product-tech__name">{tech.name}</p>
         </div>
         <div className="product-tech__col product-tech__col--right">
-          {tech.fullname && (
-            <p className="product-tech__fullname">{tech.fullname}</p>
-          )}
           <p
             className="product-tech__desc"
             dangerouslySetInnerHTML={{ __html: tech.desc }}
@@ -147,27 +144,28 @@ function BenefitsSection({ benefits }) {
         <ul className="product-benefits__grid">
           {benefits.items.map((item, i) => (
             <li key={i} className="benefit-card">
-              {item.image ? (
-                <img
-                  className="benefit-card__image"
-                  src={item.image}
-                  alt={item.title}
-                />
-              ) : (
-                <div className="benefit-card__image" />
-              )}
-              <p className="benefit-card__number">{item.number}</p>
-              {item.icon && <p className="benefit-card__icon">{item.icon}</p>}
-              <p className="benefit-card__title">{item.title}</p>
-              <p className="benefit-card__desc">{item.desc}</p>
-              {item.chip && (
-                <span className="benefit-card__chip">{item.chip}</span>
-              )}
-              {item.link && (
-                <a className="benefit-card__link" href={item.link}>
-                  자세히 보기
-                </a>
-              )}
+              <div className="benefit-card__number">{item.number}</div>
+              <div className="benefit-card__box">
+                {item.image ? (
+                  <img
+                    className="benefit-card__image"
+                    src={item.image}
+                    alt={item.title}
+                  />
+                ) : (
+                  <div className="benefit-card__image" />
+                )}
+                <p className="benefit-card__title">{item.title}</p>
+                <p className="benefit-card__desc">{item.desc}</p>
+                {item.chip && (
+                  <span className="benefit-card__chip">{item.chip}</span>
+                )}
+                {item.link && (
+                  <a className="benefit-card__link" href={item.link}>
+                    자세히 보기
+                  </a>
+                )}
+              </div>
             </li>
           ))}
         </ul>
@@ -183,31 +181,50 @@ function ModelsSection({ models }) {
       <div className="product-models__inner">
         <div className="product-models__head">
           <h2 className="product-models__title">{models.title}</h2>
+          {models.subtitle && (
+            <p className="product-models__sub">{models.subtitle}</p>
+          )}
         </div>
-        {models.note && <p className="product-models__note">{models.note}</p>}
         <ul className="product-models__grid">
           {models.items.map((item, i) => (
             <li
               key={i}
               className={`model-card${item.featured ? " model-card--featured" : ""}`}
             >
-              {item.featured && <span className="model-card__badge">추천</span>}
+              {item.featured && (
+                <span className="model-card__badge">가장 많이 팔린 모델</span>
+              )}
               <p className="model-card__series">{item.series}</p>
               <p className="model-card__name">{item.name}</p>
+              <hr className="model-card__divider" />
               <p className="model-card__capacity-label">PROCESSING CAPACITY</p>
-              <p className="model-card__capacity">{item.capacity}</p>
-              <p className="model-card__capacity-unit">{item.unit}</p>
+              <div className="model-card__capacity-row">
+                <span className="model-card__capacity">{item.capacity}</span>
+                <span className="model-card__capacity-unit">{item.unit}</span>
+              </div>
+              {item.desc && (
+                <p
+                  className="model-card__desc"
+                  dangerouslySetInnerHTML={{ __html: item.desc }}
+                />
+              )}
               {item.specs && (
                 <ul className="model-card__specs">
                   {item.specs.map((spec, j) => (
-                    <li key={j}>
-                      <p className="model-card__spec-label">{spec.label}</p>
-                      <p className="model-card__spec-value">{spec.value}</p>
+                    <li key={j} className="model-card__spec-row">
+                      <span className="model-card__spec-label">
+                        {spec.label}
+                      </span>
+                      <span className="model-card__spec-value">
+                        {spec.value}
+                      </span>
                     </li>
                   ))}
                 </ul>
               )}
-              <button className="model-card__cta">상담하기</button>
+              <Link to="/contact" className="model-card__cta">
+                문의하기
+              </Link>
             </li>
           ))}
         </ul>
@@ -221,24 +238,25 @@ function ApplicationsSection({ applications }) {
   return (
     <section className="product-applications">
       <div className="product-applications__inner">
-        <p className="product-applications__label">{applications.subtitle}</p>
-        <h2 className="product-applications__title">{applications.title}</h2>
+        <div className="product-applications__head">
+          <h2 className="product-applications__title">{applications.title}</h2>
+          <p className="product-applications__label">{applications.subtitle}</p>
+        </div>
         <ul className="product-applications__grid">
           {applications.items.map((item, i) => (
             <li key={i} className="app-card">
-              {item.image ? (
-                <img
-                  className="app-card__image"
-                  src={item.image}
-                  alt={item.title}
-                />
-              ) : (
-                <div
-                  className="app-card__image"
-                  style={{ background: "#ccc" }}
-                />
-              )}
-              <div className="app-card__overlay">
+              <div className="app-card__image-wrap">
+                {item.image ? (
+                  <img
+                    className="app-card__image"
+                    src={item.image}
+                    alt={item.title}
+                  />
+                ) : (
+                  <div className="app-card__image app-card__image--empty" />
+                )}
+              </div>
+              <div className="app-card__body">
                 {item.category && (
                   <p className="app-card__category">{item.category}</p>
                 )}
@@ -258,7 +276,14 @@ function CrossPromoSection({ crosspromo }) {
   return (
     <section className="product-crosspromo">
       <div className="product-crosspromo__inner">
-        <h2 className="product-crosspromo__title">{crosspromo.title}</h2>
+        <div className="product-crosspromo__head">
+          <h2 className="product-crosspromo__title">{crosspromo.title}</h2>
+          {crosspromo.subtitle && (
+            <p className="product-crosspromo__subtitle">
+              {crosspromo.subtitle}
+            </p>
+          )}
+        </div>
         <ul className="product-crosspromo__grid">
           {crosspromo.items.map((item, i) => (
             <li key={i}>
@@ -272,11 +297,11 @@ function CrossPromoSection({ crosspromo }) {
                 )}
                 <div className="promo-card__content">
                   <div>
-                    <p className="promo-card__name">{item.tname}</p>
+                    <p className="promo-card__tname">{item.tname}</p>
                     <p className="promo-card__name">{item.name}</p>
                     <p className="promo-card__desc">{item.desc}</p>
                   </div>
-                  <span className="promo-card__link">자세히 보기</span>
+                  <span className="promo-card__arrow">→</span>
                 </div>
               </Link>
             </li>
