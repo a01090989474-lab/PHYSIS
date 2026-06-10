@@ -9,14 +9,15 @@
   }
 
   &__title {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 24px;
+    font-size: 18px;
+    font-weight: 300;
     color: rgba($text-color, 0.5);
   }
 
@@ -41,16 +42,15 @@
   &__card {
     flex: 1;
     position: relative;
-    border-radius: 25px;
+    border-radius: 24px;
     overflow: hidden;
     cursor: pointer;
-    opacity: 0;
 
     &--up {
-      margin-top: 150px;
+      margin-top: 100px;
     }
     &--down {
-      margin-top: 250px;
+      margin-top: 200px;
     }
 
     &--visible {
@@ -60,7 +60,7 @@
 
     &-img {
       width: 100%;
-      height: 500px;
+      height: 450px;
       object-fit: cover;
     }
 
@@ -68,7 +68,6 @@
       position: absolute;
       inset: 0;
       background: rgba($text-color, 0.3);
-      padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -85,29 +84,28 @@
       position: absolute;
       inset: 0;
       display: flex;
+      padding: 30px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 24px;
       opacity: 0;
       transition: opacity 0.25s ease;
     }
 
     &-label {
-      font-size: 24px;
-      font-weight: 500;
+      font-size: 21px;
       color: $bg-color;
       margin-bottom: 6px;
     }
     &-desc {
-      font-size: 20px;
+      font-size: 18px;
       color: $bg-color;
       line-height: 1.2;
     }
 
     &:hover &-overlay {
-      background: rgba($color-primary, 0.6);
+      background: rgba($color-primary, 0.5);
     }
 
     &:hover &-default {
@@ -121,7 +119,7 @@
 
   &__solution {
     @include container;
-    padding-top: 160px;
+    padding-top: 100px;
     padding-bottom: 200px;
     text-align: center;
     opacity: 0;
@@ -137,9 +135,9 @@
   }
 
   &__solution-label {
-    font-size: 21px;
+    font-size: 18px;
     color: $color-primary;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -154,15 +152,17 @@
   }
 
   &__solution-title {
-    font-size: 36px;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   &__solution-sub {
-    font-size: 20px;
-    color: rgba($text-color, 0.6);
-    margin-bottom: 100px;
+    font-size: 21px;
+    color: rgba($text-color, 0.5);
+    font-weight: 300;
+    margin-bottom: 80px;
   }
 
   &__solution-grid {
@@ -172,8 +172,8 @@
   }
 
   &__solution-item {
-    padding: 0 90px;
-    border-right: 1px solid #b5c6df;
+    padding: 0 60px;
+    border-right: 1px solid rgba($text-color, 0.1);
 
     &:first-child {
       padding-left: 0;
@@ -186,20 +186,21 @@
 
   &__solution-item-number {
     font-size: 16px;
-    color: rgba($text-color, 0.6);
+    color: rgba($text-color, 0.5);
+    font-weight: 300;
     margin-bottom: 20px;
   }
 
   &__solution-item-label {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 500;
     color: $color-primary;
     margin-bottom: 8px;
     white-space: nowrap;
   }
 
   &__solution-item-desc {
-    font-size: 20px;
+    font-size: 18px;
     color: $text-color;
     line-height: 1.2;
   }

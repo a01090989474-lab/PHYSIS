@@ -21,30 +21,31 @@
       bottom: 0;
       left: calc(60% + 8px);
       width: 1px;
-      background: rgba($text-color, 0.5);
+      background: rgba($text-color, 0.2);
     }
   }
 
   &__header-cell {
-    padding-bottom: 50px;
-    border-bottom: 1px solid rgba($text-color, 0.5);
+    padding-bottom: 55px;
+    border-bottom: 1px solid rgba($text-color, 0.2);
   }
 
   &__title {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 24px;
+    font-size: 21px;
+    font-weight: 300;
     color: rgba($text-color, 0.5);
   }
 
   &__item {
     padding: 70px 0;
-    border-bottom: 1px solid rgba($text-color, 0.5);
+    border-bottom: 1px solid rgba($text-color, 0.2);
 
     &--right {
       padding-left: 40px;
@@ -60,7 +61,7 @@
         left: 20px;
         right: 0;
         height: 1px;
-        background: rgba($text-color, 0.5);
+        background: rgba($text-color, 0.2);
       }
     }
 
@@ -70,26 +71,26 @@
   }
 
   &__prefix {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 500;
     color: $text-color;
   }
 
   &__number {
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 500;
     color: $color-primary;
     line-height: 1;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 
   &__unit {
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 500;
   }
 
   &__desc {
-    font-size: 28px;
+    font-size: 24px;
     color: $text-color;
   }
 }

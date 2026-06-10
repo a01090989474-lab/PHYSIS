@@ -2,13 +2,13 @@
 @use "../../styles/mixins" as *;
 
 .product-card {
-  padding: 150px 0;
+  padding: 100px 0;
 
   &__inner {
     @include container;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
   }
 
@@ -16,68 +16,67 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 
   &__name {
-    font-size: 60px;
-    font-weight: 600;
+    font-size: 50px;
+    font-weight: 500;
     color: $text-color;
   }
 
   &__badge {
-    font-size: 16px;
+    font-size: 15px;
     color: $bg-color;
-    padding: 8px 16px;
+    padding: 8px 18px;
     border-radius: 50px;
   }
 
   &__temp {
-    font-size: 40px;
+    font-size: 34px;
     color: $text-color;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   &__desc {
-    font-size: 20px;
+    font-size: 18px;
     color: $text-color;
     line-height: 1.2;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
   }
 
   &__features {
     display: flex;
     flex-direction: column;
-    margin-bottom: 45px;
+    margin-bottom: 70px;
     list-style: none;
 
     li {
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      padding-bottom: 12px;
+      gap: 16px;
     }
   }
 
   &__feature-label {
-    font-size: 20px;
+    font-size: 16px;
     color: rgba($text-color, 0.5);
+    font-weight: 300;
   }
 
   &__feature-value {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
     color: $text-color;
   }
 
   &__btn {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 10px 36px;
     background: $color-primary;
     color: $bg-color;
-    font-size: 24px;
+    font-size: 21px;
     border-radius: 50px;
-    text-decoration: none;
     transition: opacity 0.2s;
 
     &:hover {
@@ -87,7 +86,7 @@
 
   &__image {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 4;
 
     img {
       width: 100%;
@@ -102,14 +101,15 @@
   padding-top: 200px;
 
   &__title {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 24px;
+    font-size: 21px;
+    font-weight: 300;
     color: rgba($text-color, 0.5);
   }
 }

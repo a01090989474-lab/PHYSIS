@@ -84,7 +84,7 @@ const data = {
         number: "01",
         title: "매출보호",
         desc: "해동 시 빠져나가던 5-10%의 드립 손실을 방지할 수 있습니다.",
-        image: null,
+        image: "/images/hybrid/con1_02.png",
         chip: "출하중량 + 5~10%",
       },
       {

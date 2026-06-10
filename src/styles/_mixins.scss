@@ -1,9 +1,8 @@
 @use 'variables' as *;
 
 @mixin container {
-  max-width: $max-width;
+  width: calc(100% - #{$section-pad-h} * 2);
   margin: 0 auto;
-  padding: 0 $section-pad-h;
 }
 
 @mixin section-padding {

@@ -5,7 +5,7 @@
 .product-hero {
   display: flex;
   align-items: center;
-  gap: 230px;
+  gap: 200px;
   width: 100%;
   max-width: 1820px;
   margin: 100px auto;
@@ -27,7 +27,7 @@
   &__image {
     display: block;
     width: 100%;
-    height: 600px;
+    height: 500px;
     object-fit: cover;
 
     @include respond-to(lg) {
@@ -43,18 +43,17 @@
   }
 
   &__eyebrow {
-    font-size: 21px;
-    font-weight: 400;
-    letter-spacing: -0.025em;
-    text-transform: uppercase;
+    font-size: 24px;
     color: $text-color;
-    margin-bottom: 110px;
+    margin-bottom: 60px;
+    font-weight: 300;
   }
 
   &__title {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 600;
     color: $text-color;
+    margin-bottom: 10px;
 
     @include respond-to(lg) {
       font-size: $font-size-3xl;
@@ -62,10 +61,10 @@
   }
 
   &__subtitle {
-    font-size: 40px;
+    font-size: 36px;
     color: $text-color;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     font-weight: 600;
   }
 
@@ -79,11 +78,11 @@
 // ── Intro ─────────────────────────────────────────────
 .product-intro {
   padding-top: 200px;
-  padding-bottom: 150px;
+  padding-bottom: 100px;
 
   &__inner {
     @include container;
-    @include grid-two-col(6rem);
+    @include grid-two-col(4px);
     align-items: start;
 
     @include respond-to(lg) {
@@ -93,19 +92,16 @@
   }
 
   &__label {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+    margin-bottom: 10px;
   }
 
   &__caption {
-    font-size: 21px;
-    font-weight: 400;
-    color: rgba($text-color, 0.7);
-    margin-top: 4px;
-    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba($text-color, 0.5);
     letter-spacing: -0.025em;
   }
 
@@ -113,32 +109,19 @@
     @include section-label;
 
     &--large {
-      font-size: 26px;
+      font-size: 19px;
       font-weight: 400;
-      color: rgba($text-color, 0.7);
+      color: $text-color;
       line-height: 1.2;
       text-transform: none;
+      letter-spacing: -0.025em;
 
       strong {
-        font-size: 32px;
-        font-weight: 600;
+        font-size: 24px;
+        font-weight: 500;
         color: $color-primary;
       }
     }
-  }
-
-  &__body {
-    font-size: $font-size-sm;
-    color: $color-gray-600;
-    line-height: 1.9;
-  }
-
-  &__highlight {
-    font-weight: 700;
-    color: $color-primary;
-    font-size: $font-size-md;
-    display: block;
-    margin-bottom: 1rem;
   }
 }
 
@@ -149,7 +132,7 @@
   border-bottom: 1px solid $color-gray-200;
   &__inner {
     @include container;
-    @include grid-two-col(5rem);
+    @include grid-two-col(4rem);
 
     @include respond-to(lg) {
       grid-template-columns: 1fr;
@@ -157,23 +140,16 @@
   }
 
   &__image-wrap {
-    width: 550px;
-    height: 730px;
+    width: 100%;
+    height: 650px;
     overflow: hidden;
     position: sticky;
-    top: 120px;
-    flex-shrink: 0;
   }
 
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  &__image-placeholder {
-    width: 100%;
-    height: 100%;
   }
 
   &__list {
@@ -219,22 +195,21 @@
     width: $number-col;
     flex-shrink: 0;
     color: rgba($text-color, 0.5);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: -0.025em;
   }
 
   &__title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     color: rgba($text-color, 0.5);
     text-align: left;
-    letter-spacing: -0.025em;
   }
 
   &__subtitle {
-    font-size: 24px;
+    font-size: 20px;
     color: rgba($text-color, 0.5);
     margin-top: 6px;
     text-align: left;
@@ -242,8 +217,8 @@
   }
 
   &__toggle {
-    font-size: 20px;
-    color: $color-gray-400;
+    font-size: 18px;
+    color: rgba($text-color, 0.5);
     transition:
       transform 0.25s,
       color 0.25s;
@@ -268,15 +243,15 @@
   }
 
   &__chip {
-    @include chip(18px);
-    font-size: 18px;
+    @include chip(30px);
+    font-size: 16px;
     font-weight: 400;
   }
 }
 
 // ── Tech ──────────────────────────────────────────────
 .product-tech {
-  padding-top: 150px;
+  padding-top: 100px;
   padding-bottom: 200px;
   color: $color-primary;
 
@@ -298,21 +273,16 @@
   }
 
   &__name {
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 500;
     letter-spacing: -0.025em;
     color: $color-primary;
   }
 
   &__desc {
-    font-size: 28px;
+    font-size: 21px;
     color: $text-color;
-    line-height: 1.2;
-  }
-
-  &__emphasis {
-    color: $color-primary;
-    font-weight: 600;
+    line-height: 1.3;
   }
 }
 
@@ -324,31 +294,25 @@
     @include container;
   }
 
-  &__head {
-    margin-bottom: 4rem;
-  }
-
   &__title {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    line-height: 1.2;
     letter-spacing: -0.025em;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
 
   &__label {
-    font-size: 21px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 300;
     color: $color-gray-400;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+    color: rgba($text-color, 0.5);
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 20px;
 
     @include respond-to(lg) {
       grid-template-columns: repeat(2, 1fr);
@@ -361,34 +325,33 @@
 
 .benefit-card {
   position: relative;
-  padding-top: 150px;
+  padding-top: 130px;
   display: flex;
   flex-direction: column;
 
   &__number {
     position: absolute;
-    top: 25%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background: $color-primary;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 30px;
-    font-weight: 400;
-    z-index: 1;
+    font-size: 20px;
+    font-weight: 300;
   }
 
   &__box {
     background: #fff;
     border: 1px solid #e7edf5;
-    border-radius: 40px;
+    border-radius: 26px;
 
-    padding: 3rem 1.5rem 2rem;
+    padding: 15px 12px 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -399,38 +362,30 @@
   &__image {
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: contain;
-    border-radius: 8px;
+    // object-fit: contain;
+    border-radius: 21px;
     background: transparent;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
   }
   &__title {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 21px;
+    font-weight: 500;
     color: $text-color;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
   }
 
   &__desc {
-    font-size: 21px;
+    font-size: 18px;
     color: $text-color;
     line-height: 1.2;
     flex: 1;
-    margin-bottom: 25px;
+    margin-bottom: 16px;
   }
 
   &__chip {
     @include chip;
-  }
-
-  &__link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    font-size: $font-size-xs;
-    font-weight: 600;
-    color: $color-primary;
-    border-bottom: 1px solid $color-primary;
-    padding-bottom: 2px;
+    font-size: 14px;
+    font-weight: 400;
   }
 }
 
@@ -443,30 +398,28 @@
   }
 
   &__head {
-    margin-bottom: 3rem;
+    margin-bottom: 100px;
   }
 
   &__title {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    line-height: 1.2;
     letter-spacing: -0.025em;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
 
   &__sub {
-    font-size: 21px;
-    font-weight: 400;
-    color: $color-gray-400;
-    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba($text-color, 0.5);
     letter-spacing: -0.025em;
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 20px;
 
     @include respond-to(md) {
       grid-template-columns: 1fr;
@@ -476,15 +429,15 @@
 
 .model-card {
   background: #fff;
-  border-radius: 35px;
-  border: 1.5px solid $color-gray-200;
-  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  border: 1px solid $color-gray-200;
+  padding: 26px;
   position: relative;
   display: flex;
   flex-direction: column;
   transition:
-    border-color 0.22s,
-    transform 0.22s;
+    border-color 0.25s,
+    transform 0.25s;
 
   &:hover {
     border-color: $color-primary;
@@ -493,8 +446,8 @@
 
   &--featured {
     border-color: $color-primary;
-    border-width: 2px;
-    padding-top: 3.5rem;
+    border-width: 1px;
+    padding-top: 26px;
 
     .model-card__cta {
       background: transparent;
@@ -506,66 +459,63 @@
   &__badge {
     position: absolute;
     top: -15px;
-    right: 1.5rem;
+    right: 20px;
     background: $color-primary;
     color: #fff;
-    font-size: 18px;
-    font-weight: 400;
-    padding: 10px 20px;
-    border-radius: 25px;
-    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 8px 16px;
+    border-radius: 50px;
   }
 
   &__series {
-    @include section-label;
-    color: $color-gray-400;
-    margin-bottom: 15px;
-    font-size: 21px;
+    color: rgba($text-color, 0.5);
+    margin-bottom: 16px;
+    font-size: 16px;
   }
 
   &__name {
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   &__divider {
     border: none;
-    border-top: 1px solid $color-gray-200;
+    border-top: 1px solid rgba($text-color, 0.2);
     margin-bottom: 30px;
   }
 
   &__capacity-label {
-    font-size: 21px;
-    color: $color-gray-400;
-    margin-bottom: 15px;
+    font-size: 16px;
+    color: rgba($text-color, 0.5);
+    margin-bottom: 20px;
   }
 
   &__capacity-row {
     display: flex;
     align-items: baseline;
     gap: 7px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   &__capacity {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 600;
     color: $color-primary;
   }
 
   &__capacity-unit {
-    font-size: 24px;
-    color: $color-gray-400;
+    font-size: 21px;
+    color: rgba($text-color, 0.5);
   }
 
   &__desc {
-    font-size: 20px;
-    color: $color-gray-400;
+    font-size: 18px;
+    color: rgba($text-color, 0.5);
     line-height: 1.2;
     margin-bottom: 30px;
-    font-weight: 400;
   }
 
   &__desc-em {
@@ -574,8 +524,8 @@
   }
 
   &__specs {
-    border-top: 1px solid $color-gray-200;
-    padding-top: 30px;
+    border-top: 1px solid rgba($text-color, 0.2);
+    padding-top: 40px;
     margin-bottom: 60px;
     display: flex;
     flex-direction: column;
@@ -586,7 +536,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px dashed $color-gray-200;
+    border-bottom: 1px dashed rgba($text-color, 0.2);
 
     &:last-child {
       border-bottom: none;
@@ -594,37 +544,34 @@
   }
 
   &__spec-label {
-    font-size: 24px;
+    font-size: 16px;
     color: $text-color;
   }
 
   &__spec-value {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     color: $text-color;
   }
 
   &__cta {
     display: block;
     width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    background: transparent;
+    padding: 10px;
+    border-radius: 50px;
     color: $text-color;
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 18px;
     text-align: center;
     cursor: pointer;
-    border: 1.5px solid $color-primary;
+    border: 1px solid $color-primary;
     transition:
       border-color 0.2s,
       background 0.2s,
       color 0.2s;
 
     &:hover {
-      border-color: $color-primary;
       background: $color-primary;
-      color: #fff;
+      color: $bg-color;
     }
   }
 }
@@ -638,23 +585,21 @@
   }
 
   &__head {
-    margin-bottom: 3rem;
+    margin-bottom: 100px;
   }
 
   &__title {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    line-height: 1.2;
     letter-spacing: -0.025em;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
 
   &__label {
-    font-size: 21px;
-    font-weight: 400;
-    color: $color-gray-400;
-    line-height: 1.2;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba($text-color, 0.5);
     letter-spacing: -0.025em;
   }
 
@@ -691,10 +636,6 @@
     object-fit: cover;
     transition: transform 0.4s;
     display: block;
-
-    &--empty {
-      background: $color-gray-200;
-    }
   }
 
   &:hover &__image {
@@ -702,29 +643,28 @@
   }
 
   &__body {
-    padding: 1.25rem 1.25rem 1.5rem;
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
-    flex: 1;
   }
 
   &__category {
-    @include section-label;
-    color: $color-gray-400;
-    margin-bottom: 0.4rem;
+    font-size: 14px;
+    color: rgba($text-color, 0.5);
+    margin-bottom: 8px;
   }
 
   &__title {
-    font-size: $font-size-base;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 500;
     color: $text-color;
-    margin-bottom: 0.5rem;
+    margin-bottom: 16px;
   }
 
   &__desc {
-    font-size: $font-size-xs;
-    color: $color-gray-600;
-    line-height: 1.7;
+    font-size: 16px;
+    color: $text-color;
+    line-height: 1.2;
   }
 }
 
@@ -738,30 +678,26 @@
 
   &__head {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 100px;
   }
 
   &__title {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 500;
     color: $text-color;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 21px;
-    font-weight: 400;
-    color: $color-gray-400;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba($text-color, 0.5);
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 30px;
 
     @include respond-to(md) {
       grid-template-columns: 1fr;
@@ -770,19 +706,20 @@
 }
 
 .promo-card {
-  background: $bg-color;
+  background: #fff;
   border-radius: 16px;
-  border: 1.5px solid $color-gray-200;
   overflow: hidden;
   display: grid;
   grid-template-columns: 200px 1fr;
   transition:
     border-color 0.22s,
-    transform 0.22s;
+    transform 0.22s,
+    box-shadow 0.22s;
 
   &:hover {
     border-color: $color-primary;
     transform: translateY(-4px);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
   }
 
   @include respond-to(md) {
@@ -797,35 +734,35 @@
   }
 
   &__content {
-    padding: 2.5rem 1.75rem;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 10px;
   }
 
   &__tname {
-    @include section-label;
+    font-size: 13px;
     color: $color-primary;
-    margin-bottom: 0.25rem;
+    margin-bottom: 4px;
   }
 
   &__name {
-    font-size: $font-size-lg;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 600;
     color: $text-color;
-    margin-bottom: 0.5rem;
+    margin-bottom: 10px;
   }
 
   &__desc {
-    font-size: $font-size-xs;
-    color: $color-gray-600;
-    line-height: 1.7;
+    font-size: 16px;
+    color: $text-color;
+    line-height: 1.2;
   }
 
   &__arrow {
-    font-size: 1.25rem;
-    color: $color-primary;
+    font-size: 20px;
+    color: $text-color;
     flex-shrink: 0;
   }
 }
