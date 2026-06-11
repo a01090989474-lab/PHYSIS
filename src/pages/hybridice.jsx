@@ -66,7 +66,7 @@ const data = {
       },
       {
         number: "04",
-        title: "",
+        title: "리스크 관리",
         subtitle: "RISK",
         desc: "프레온 단계적 퇴출, 글로벌 바이어의 친환경 인증 요구 강화. 환경 압박에 선제적으로 대응합니다.",
         image: "/images/tech_hybrid_04.png",
@@ -161,31 +161,31 @@ const data = {
   },
   applications: {
     title: "현장에서 증명된 활용 분야",
-    subtitle: "Where HybridIce works best",
+    subtitle: "Where HYBRIDICE works best",
     items: [
       {
         category: "FISHERY",
         title: "양식·연근해 수산",
         image: "/images/hybrid/con4_01.png",
-        desc: "넙치 등 고급어 최상급 신선도 유지, 산소 사용 없이 효과적으로 선도를 유지.",
+        desc: "넙치 등 고급어 최상급 신선도 유지, 산소 사용 없이 효과적으로 선도를 유지",
       },
       {
         category: "LIVESTOCK",
         title: "정육·가공육",
         image: "/images/hybrid/con4_02.png",
-        desc: "도축 후 신속하게 냉각 처리하여 신선도와 풍미 보존, 육즙 손실 최소화.",
+        desc: "도축 후 신속하게 냉각 처리하여 신선도와 풍미 보존, 육즙 손실 최소화",
       },
       {
         category: "PROCESSED FOOD",
         title: "냉동 가공 식품",
         image: "/images/hybrid/con4_03.png",
-        desc: "만두 튀김 반찬류 등 다양한 가공식품의 식감과 외관을 그대로 보존.",
+        desc: "만두 튀김 반찬류 등 다양한 가공식품의 식감과 외관을 그대로 보존",
       },
       {
         category: "EXPORT",
         title: "콜드체인 수출",
         image: "/images/hybrid/con4_04.png",
-        desc: "장거리 운송 수출 시 신선도 유지. 글로벌 바이어의 친환경 인증 요구 충족.",
+        desc: "장거리 운송 수출 시 신선도 유지. 글로벌 바이어의 친환경 인증 요구 충족",
       },
     ],
   },
@@ -195,14 +195,14 @@ const data = {
     items: [
       {
         tname: "LIVING CHILL",
-        name: "Kuraban",
+        name: "KURABAN",
         desc: "얼리지 않는 -2℃ 살아있는 냉장 시스템",
         path: "/kuraban",
         image: "/images/kuraban_02.jpg",
       },
       {
         tname: "FISH - SAFE ICE",
-        name: "Sea Snow",
+        name: "SEASNOW",
         desc: "어류 친화 1% 염도 슬러시 아이스",
         path: "/seasnow",
         image: "/images/main_con2_03.png",

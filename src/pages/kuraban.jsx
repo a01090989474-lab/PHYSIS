@@ -95,7 +95,7 @@ const data = {
       },
       {
         number: "03",
-        title: "3−2℃ 미동결 유지",
+        title: "2-3℃ 미동결 유지",
         desc: "어는점 부근에서 얼지 않는 과냉각 상태 유지",
         image: null,
         chip: "−2℃ 과냉각",
@@ -189,7 +189,7 @@ const data = {
   },
   applications: {
     title: "현장에서 증명된 활용 분야",
-    subtitle: "Where HybridIce works best",
+    subtitle: "Where KURABAN works best",
     items: [
       {
         category: "SUSHI",
@@ -223,7 +223,7 @@ const data = {
     items: [
       {
         tname: "FISH - SAFE ICE",
-        name: "Sea Snow",
+        name: "SEASNOW",
         desc: "어류 친화 1% 염도 슬러시 아이스",
         path: "/seasnow",
         image: "/images/main_con2_03.png",
