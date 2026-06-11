@@ -4,12 +4,18 @@ const data = {
   hero: {
     eyebrow: "씨스노우",
     title: "SEA SNOW",
-    subtitle: "눈꽃 슬러리 아이스",
+    subtitle: (
+      <>
+        염도 1%,
+        <br />
+        어체 손상 없는 아이스
+      </>
+    ),
     desc: (
       <>
-        섬세한 눈꽃 형태의 슬러리 아이스로
+        선상에서 경매장까지,
         <br />
-        표면 손상 없이 완벽한 냉각을 실현합니다.
+        어류 친화적인 냉각 솔루션.
       </>
     ),
     image: null,
@@ -18,51 +24,50 @@ const data = {
     title: "SEA SNOW",
     subtitle: (
       <>
-        <strong>눈꽃처럼 미세한 입자의 슬러리 아이스</strong>가 수산물
-        표면에 밀착되는 냉각 시스템입니다.
+        <strong>염도 1%의 슬러시 아이스</strong>로 어획물을 냉각하는 <br />
+        어류 친화 시스템입니다. 미세한 반액체 결정이 어체를 부드럽게 감싸
         <br />
-        <br />
-        표면을 손상시키지 않으면서,
-        <br />
-        <strong>균일하고 부드러운 냉각</strong>을 제공합니다.
+        <strong>−1℃에서 손상 없이 빠르게 신선도를 보존</strong>합니다.
       </>
     ),
     subtitleLarge: true,
     caption: "Explanation and Operating Principle of Sea Snow",
   },
   features: {
+    title: "사업장에 가져오는 4가지 변화",
+    subtitle: "From technical features to business outcomes",
     items: [
       {
         number: "01",
-        title: "GENTLE",
-        subtitle: "표면 손상 없는 냉각",
-        desc: "눈꽃 입자가 제품 표면에 부드럽게 밀착하여 손상 없이 냉각합니다.",
+        title: "어체 손상 없는 신선도",
+        subtitle: "QUALITY",
+        desc: "날카로운 각얼음과 달리 슬러리가 어체를 부드럽게 감싸 찰과상·압박 손상이 없습니다. 선어 등급 외관이 그대로 유지됩니다.",
         image: null,
         chip: "표면 손상 ZERO",
       },
       {
         number: "02",
-        title: "UNIFORM",
-        subtitle: "완벽한 균일 냉각",
-        desc: "미세 입자로 모든 면에 균일한 냉각 효과를 제공합니다.",
+        title: "빠른 초기 냉각",
+        subtitle: "SPEED",
+        desc: "어체와 접촉 면적이 넓어 일반 얼음보다 빠르게 심부 온도를 낮춥니다. 어획 직후 골든타임을 잡습니다.",
         image: null,
-        chip: "균일 냉각",
+        chip: "−1℃ 급속 냉각",
       },
       {
         number: "03",
-        title: "FRESH",
-        subtitle: "장기 선도 유지",
-        desc: "최적의 냉각 환경으로 장기간 선도를 유지합니다.",
+        title: "선도 유지 기간 연장",
+        subtitle: "SHELF LIFE",
+        desc: "낮고 균일한 온도로 부패·선도 저하를 늦춰 경매·유통까지의 신선도 유지 기간이 늘어납니다.",
         image: null,
-        chip: "선도 유지",
+        chip: "선도 유지 ↑",
       },
       {
         number: "04",
-        title: "CLEAN",
-        subtitle: "위생적인 시스템",
-        desc: "청결한 눈꽃 슬러리로 위생적인 냉각 환경을 보장합니다.",
+        title: "취급·작업 효율",
+        subtitle: "EFFICIENCY",
+        desc: "슬러시는 어체 사이 빈틈까지 흘러들어 적재가 쉽고, 얼음 갈아주는 수고가 줄어듭니다.",
         image: null,
-        chip: "위생 안전",
+        chip: "작업 공정 단순화",
       },
     ],
   },
@@ -71,42 +76,41 @@ const data = {
     desc: '미세 눈꽃 아이스 기술을 활용한 혁신적인 냉각 시스템으로, <span class="product-tech__emphasis">표면 손상 없는 완벽한 냉각</span>을 실현합니다.',
   },
   benefits: {
-    title: "사업장에 가져오는 4가지 변화",
-    subtitle: "From technical features to business outcomes",
     items: [
       {
         number: "01",
-        title: "품질 프리미엄",
-        desc: "표면 손상 없는 고품질 제품으로 프리미엄 시장을 공략합니다.",
+        title: "염도 1% 슬러리 생성",
+        desc: "해수와 유사한 염도 1%의 미세 슬러리 아이스 생성",
         image: null,
-        chip: "프리미엄 품질",
+        chip: "염도 1%",
       },
       {
         number: "02",
-        title: "선도 연장",
-        desc: "최적의 냉각으로 유통 기한을 연장합니다.",
+        title: "어체 전체 균일 접촉",
+        desc: "반액체 슬러리가 어체 표면을 빈틈없이 감쌈",
         image: null,
-        chip: "유통기한 연장",
+        chip: "표면 손상 0",
       },
       {
         number: "03",
-        title: "수율 향상",
-        desc: "손상 없는 냉각으로 폐기율을 줄이고 수율을 높입니다.",
+        title: "−1℃ 빠른 냉각",
+        desc: "넓은 접촉 면적으로 일반 얼음보다 빠르게 냉각",
         image: null,
-        chip: "폐기율 감소",
+        chip: "−1℃ 급속 냉각",
       },
       {
         number: "04",
-        title: "브랜드 가치",
-        desc: "고품질 제품으로 브랜드 신뢰도를 높입니다.",
+        title: "선도 유지",
+        desc: "어획 직후 신선도를 경매장·가공장까지 유지",
         image: null,
-        chip: "브랜드 신뢰도 ↑",
+        chip: "선어 등급 유지",
       },
     ],
   },
   models: {
     title: "사업장 규모에 맞는 모델 선택",
     subtitle: "Find the model that fits your operation",
+    capacityLabel: "CHAMBER SIZE",
     items: [
       {
         series: "SNW - S",
@@ -158,28 +162,28 @@ const data = {
     subtitle: "Where Sea Snow works effectively",
     items: [
       {
-        category: "PREMIUM FISH",
-        title: "프리미엄 생선",
+        category: "FISHING VESSEL",
+        title: "어선 · 선상",
         image: null,
-        desc: "고급 생선의 표면을 손상 없이 냉각합니다.",
+        desc: "어획 직후 선상에서 바로 냉각. 잡은 순간의 신선도를 항구까지 유지합니다.",
       },
       {
-        category: "SHELLFISH",
-        title: "패류·갑각류",
+        category: "AQUACULTURE",
+        title: "양식장",
         image: null,
-        desc: "섬세한 패류와 갑각류를 안전하게 냉각합니다.",
+        desc: "출하 직전 활어·선어를 손상 없이 냉각. 양식 수산물의 상품 가치를 지킵니다.",
       },
       {
-        category: "SASHIMI",
-        title: "회·초밥 재료",
+        category: "AUCTION MARKET",
+        title: "위판장 · 경매장",
         image: null,
-        desc: "최고급 회 재료의 신선도를 유지합니다.",
+        desc: "산지 위판장에서 어체 손상 없는 진열·보관. 경매 등급과 단가를 높입니다.",
       },
       {
-        category: "EXPORT",
-        title: "수출용 수산물",
+        category: "PROCESSING",
+        title: "수산 가공",
         image: null,
-        desc: "장거리 운송에도 신선도를 유지합니다.",
+        desc: "가공장 입고 수산물의 선도 유지. 후속 가공·동결 공정의 품질 기반이 됩니다.",
       },
     ],
   },

@@ -68,46 +68,52 @@ function FeaturesSection({ features }) {
   return (
     <section className="product-features">
       <div className="product-features__inner">
-        <div className="product-features__image-wrap">
-          {activeImage ? (
-            <img className="product-features__image" src={activeImage} alt="" />
-          ) : (
-            <div className="product-features__image-placeholder" />
-          )}
+        <div className="product-features__head">
+          <h2 className="product-features__title">{features.title}</h2>
+          <p className="product-features__label">{features.subtitle}</p>
         </div>
-        <ul className="product-features__list">
-          {features.items.map((item, i) => (
-            <li key={i} className="feature-item">
-              <button
-                className={`feature-item__header${openIndex === i ? " feature-item__header--active" : ""}`}
-                onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-              >
-                <div className="feature-item__meta">
-                  <span className="feature-item__number">{item.number}</span>
-                  <div>
-                    <p className="feature-item__title">{item.title}</p>
-                    <p className="feature-item__subtitle">{item.subtitle}</p>
+        <div className="product-features__grid">
+          <div className="product-features__image-wrap">
+            {activeImage ? (
+              <img className="product-features__image" src={activeImage} alt="" />
+            ) : (
+              <div className="product-features__image-placeholder" />
+            )}
+          </div>
+          <ul className="product-features__list">
+            {features.items.map((item, i) => (
+              <li key={i} className="feature-item">
+                <button
+                  className={`feature-item__header${openIndex === i ? " feature-item__header--active" : ""}`}
+                  onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
+                >
+                  <div className="feature-item__meta">
+                    <span className="feature-item__number">{item.number}</span>
+                    <div>
+                      <p className="feature-item__title">{item.title}</p>
+                      <p className="feature-item__subtitle">{item.subtitle}</p>
+                    </div>
                   </div>
-                </div>
-                <span
-                  className={`feature-item__toggle${openIndex === i ? " feature-item__toggle--open" : ""}`}
-                >
-                  <BiSolidUpArrow />
-                </span>
-              </button>
-              {item.desc && (
-                <div
-                  className={`feature-item__body${openIndex === i ? " feature-item__body--visible" : ""}`}
-                >
-                  <p>{item.desc}</p>
-                  {item.chip && (
-                    <span className="feature-item__chip">{item.chip}</span>
-                  )}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+                  <span
+                    className={`feature-item__toggle${openIndex === i ? " feature-item__toggle--open" : ""}`}
+                  >
+                    <BiSolidUpArrow />
+                  </span>
+                </button>
+                {item.desc && (
+                  <div
+                    className={`feature-item__body${openIndex === i ? " feature-item__body--visible" : ""}`}
+                  >
+                    <p>{item.desc}</p>
+                    {item.chip && (
+                      <span className="feature-item__chip">{item.chip}</span>
+                    )}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );
@@ -137,10 +143,6 @@ function BenefitsSection({ benefits }) {
   return (
     <section className="product-benefits">
       <div className="product-benefits__inner">
-        <div className="product-benefits__head">
-          <h2 className="product-benefits__title">{benefits.title}</h2>
-          <p className="product-benefits__label">{benefits.subtitle}</p>
-        </div>
         <ul className="product-benefits__grid">
           {benefits.items.map((item, i) => (
             <li key={i} className="benefit-card">
@@ -174,6 +176,51 @@ function BenefitsSection({ benefits }) {
   );
 }
 
+// ── Global Partnerships ───────────────────────────────
+function GlobalSection({ global }) {
+  return (
+    <section className="product-global">
+      <div className="product-global__inner">
+        <div className="product-global__head">
+          <h2 className="product-global__title">{global.title}</h2>
+          <p className="product-global__subtitle">{global.subtitle}</p>
+        </div>
+        <div className="product-global__stat">
+          <p className="product-global__stat-label">{global.stat.label}</p>
+          <p className="product-global__stat-value">{global.stat.value}</p>
+          <p className="product-global__stat-desc">{global.stat.desc}</p>
+          <div className="product-global__breakdown">
+            {global.stat.breakdown.map((item, i) => (
+              <div key={i} className="product-global__breakdown-item">
+                <p className="product-global__breakdown-value">{item.value}</p>
+                <p className="product-global__breakdown-label">{item.label}</p>
+                <p className="product-global__breakdown-sublabel">
+                  {item.sublabel}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="product-global__partners">
+          {global.partners.map((item, i) => (
+            <div key={i} className="partner-card">
+              <img className="partner-card__logo" src={item.logo} alt={item.name} />
+              <div className="partner-card__content">
+                <p className="partner-card__label">{item.label}</p>
+                <p className="partner-card__name">{item.name}</p>
+                <p
+                  className="partner-card__desc"
+                  dangerouslySetInnerHTML={{ __html: item.desc }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ── Models ────────────────────────────────────────────
 function ModelsSection({ models }) {
   return (
@@ -197,7 +244,9 @@ function ModelsSection({ models }) {
               <p className="model-card__series">{item.series}</p>
               <p className="model-card__name">{item.name}</p>
               <hr className="model-card__divider" />
-              <p className="model-card__capacity-label">PROCESSING CAPACITY</p>
+              <p className="model-card__capacity-label">
+                {models.capacityLabel ?? "PROCESSING CAPACITY"}
+              </p>
               <div className="model-card__capacity-row">
                 <span className="model-card__capacity">{item.capacity}</span>
                 <span className="model-card__capacity-unit">{item.unit}</span>
@@ -318,9 +367,10 @@ export default function ProductPage({ data }) {
     <>
       {data.hero && <HeroSection hero={data.hero} />}
       {data.intro && <IntroSection intro={data.intro} />}
-      {data.features && <FeaturesSection features={data.features} />}
-      {data.tech && <TechSection tech={data.tech} />}
       {data.benefits && <BenefitsSection benefits={data.benefits} />}
+      {data.tech && <TechSection tech={data.tech} />}
+      {data.features && <FeaturesSection features={data.features} />}
+      {data.global && <GlobalSection global={data.global} />}
       {data.models && <ModelsSection models={data.models} />}
       {data.applications && (
         <ApplicationsSection applications={data.applications} />
