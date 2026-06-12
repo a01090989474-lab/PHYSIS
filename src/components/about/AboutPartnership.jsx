@@ -29,22 +29,41 @@ export default function AboutPartnership() {
     <section className="about-partner">
       <div className="about-partner__inner">
         <p className="about-partner__eyebrow">WITH US — GLOBAL PARTNERSHIP</p>
-        <h2 className="about-partner__title">세계적 기술 파트너와 함께합니다</h2>
-        <p className="about-partner__subtitle">Built on world-class research partnerships.</p>
+        <h2 className="about-partner__title">
+          세계적 기술 파트너와 함께합니다
+        </h2>
+        <p className="about-partner__subtitle">
+          Built on world-class research partnerships.
+        </p>
 
         <div className="about-partner__mars">
           <div className="about-partner__mars-logo">
-            <span>MARS Company<br />로고</span>
+            <span>
+              MARS Company
+              <br />
+              로고
+            </span>
           </div>
           <div className="about-partner__mars-info">
             <p className="about-partner__mars-tag">CORE TECHNOLOGY PARTNER</p>
-            <h3 className="about-partner__mars-name">MARS Company<br />마즈컴퍼니</h3>
+            <h3 className="about-partner__mars-name">
+              MARS Company
+              <br />
+              마즈컴퍼니
+            </h3>
             <p className="about-partner__mars-desc">
-              2006년 설립된 일본 근마현 기반의 냉동·냉장 솔루션 전문 기업. 비열에너지 연구개발과 냉동·냉장·해빙·제빙 장치의 정치를 제조를 전문으로 합니다.
+              2006년 설립된 일본 근마현 기반의 냉동·냉장 솔루션 전문 기업.
+              비열에너지 연구개발과 냉동·냉장·해빙·제빙 장치의 정치를 제조를
+              전문으로 합니다.
             </p>
             <div className="about-partner__mars-meta">
-              <p><strong>설립</strong> 2006년, 일본 군마현 다카사키시</p>
-              <p><strong>전문 분야</strong> 비열에너지 R&amp;D · 냉동·냉장 설비 설계 · 신지 유통 네트워크</p>
+              <p>
+                <strong>설립</strong> 2006년, 일본 군마현 다카사키시
+              </p>
+              <p>
+                <strong>전문 분야</strong> 비열에너지 R&amp;D · 냉동·냉장 설비
+                설계 · 신지 유통 네트워크
+              </p>
             </div>
           </div>
         </div>
@@ -62,14 +81,19 @@ export default function AboutPartnership() {
         <div className="about-partner__trademarks">
           <div className="about-partner__tm-header">
             <p className="about-partner__tm-label">REGISTERED TRADEMARKS</p>
-            <h3 className="about-partner__tm-title">등록상표 보유 — 식품·기계·설치 전 영역</h3>
-            <p className="about-partner__tm-note">글로벌아이엔 등록상표 완전 목록</p>
+            <h3 className="about-partner__tm-title">
+              등록상표 보유 — 식품·기계·설치 전 영역
+            </h3>{" "}
           </div>
           <div className="about-partner__tm-grid">
             {trademarks.map((t) => (
               <div key={t.num} className="about-partner__tm-card">
                 <div className="about-partner__tm-img">
-                  <span>등록상표<br />샘플</span>
+                  <span>
+                    등록상표
+                    <br />
+                    샘플
+                  </span>
                 </div>
                 <p className="about-partner__tm-num">{t.num}</p>
                 <p className="about-partner__tm-desc">{t.desc}</p>

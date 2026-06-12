@@ -28,25 +28,25 @@
   }
 
   &__banner {
-    background: $color-primary;
+    background: $color-blue-light;
     border-radius: 20px;
-    padding: 50px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 60px 70px;
     margin-bottom: 40px;
-    text-align: left;
+
+    @include respond-to(lg) {
+      padding: 40px;
+    }
   }
 
-  &__banner-small {
+  &__banner-text {
     font-size: $font-size-xl;
-    color: rgba(white, 0.6);
-  }
+    color: $color-gray-600;
+    line-height: 1.6;
 
-  &__banner-large {
-    font-size: 36px;
-    font-weight: 700;
-    color: white;
+    strong {
+      color: $color-primary;
+      font-weight: 700;
+    }
   }
 
   &__cards {
@@ -54,19 +54,28 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     text-align: left;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__card {
-    background: $color-gray-100;
+    background: #fff;
+    border: 1px solid $color-gray-200;
     border-radius: 20px;
     padding: 40px 44px;
   }
 
   &__card-icon {
-    width: 44px;
-    height: 44px;
-    background: $color-blue-light;
-    border-radius: 12px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $color-gray-100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     margin-bottom: 24px;
   }
 
@@ -75,6 +84,13 @@
     font-weight: 600;
     letter-spacing: 0.12em;
     color: $color-primary;
+    margin-bottom: 16px;
+  }
+
+  &__card-title {
+    font-size: $font-size-xl;
+    font-weight: 700;
+    color: $text-color;
     margin-bottom: 16px;
   }
 

@@ -158,11 +158,6 @@
     flex: 1;
   }
 
-  &__tm-note {
-    font-size: $font-size-xs;
-    color: rgba(white, 0.35);
-  }
-
   &__tm-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

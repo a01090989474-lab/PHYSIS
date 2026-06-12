@@ -1,0 +1,226 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+$color-success: #1f7a4d;
+$color-danger: #c0392b;
+
+.kex-compare {
+  padding: 150px 0;
+
+  @include respond-to(lg) {
+    padding: 80px 0;
+  }
+
+  &__inner {
+    @include container;
+  }
+
+  &__head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 80px;
+
+    @include respond-to(lg) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__label {
+    @include section-label;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: $font-size-3xl;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 16px;
+
+    @include respond-to(lg) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__sub {
+    font-size: $font-size-lg;
+    font-style: italic;
+    color: rgba($text-color, 0.5);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    @include respond-to(lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: #fff;
+    border: 1px solid $color-gray-200;
+    border-left: 4px solid $color-primary;
+    border-radius: 24px;
+    padding: 36px 44px;
+
+    @include respond-to(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 30px;
+    }
+  }
+
+  &__summary-text {
+    font-size: $font-size-md;
+    color: rgba($text-color, 0.6);
+    line-height: 1.6;
+
+    strong {
+      color: $text-color;
+      font-weight: 600;
+    }
+  }
+
+  &__summary-stat {
+    flex-shrink: 0;
+    background: $color-gray-100;
+    border-radius: 16px;
+    padding: 18px 32px;
+    font-size: $font-size-xl;
+    font-weight: 600;
+    color: $color-primary;
+    white-space: nowrap;
+
+    @include respond-to(lg) {
+      align-self: stretch;
+      text-align: center;
+    }
+  }
+}
+
+.compare-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid $color-gray-200;
+  border-radius: 24px;
+  padding: 44px;
+
+  @include respond-to(lg) {
+    padding: 30px;
+  }
+
+  &--highlight {
+    border: 2px solid $color-primary;
+  }
+
+  &__badge {
+    align-self: flex-start;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 28px;
+
+    &--highlight {
+      background: $color-primary;
+      color: #fff;
+    }
+
+    &--neutral {
+      background: $color-gray-100;
+      color: $color-gray-600;
+    }
+  }
+
+  &__method {
+    @include section-label;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: 600;
+    color: $text-color;
+    margin-bottom: 16px;
+
+    &--muted {
+      color: $color-gray-200;
+    }
+  }
+
+  &__desc {
+    font-size: $font-size-md;
+    color: rgba($text-color, 0.5);
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+
+  &__group {
+    & + & {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px dashed $color-gray-200;
+    }
+  }
+
+  &__group-label {
+    @include section-label;
+    margin-bottom: 16px;
+
+    &--positive {
+      color: $color-success;
+    }
+
+    &--negative {
+      color: $color-danger;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: $font-size-md;
+    color: $text-color;
+    line-height: 1.5;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: 8px;
+    border-radius: 50%;
+
+    &--positive {
+      background: $color-success;
+    }
+
+    &--negative {
+      background: $color-danger;
+    }
+
+    &--neutral {
+      background: $color-gray-400;
+    }
+  }
+}

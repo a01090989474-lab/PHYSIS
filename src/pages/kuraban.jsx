@@ -130,10 +130,11 @@ const data = {
         desc: "비열 전기장(N-Te-Fe) 원천 기술 보유.<br/>일본의 공식 파트너십.",
       },
       {
-        logo: "/images/kuraban/mars_logo.png",
-        label: "ORIGIN TECHNOLOGY",
-        name: "MARS Company",
-        desc: "비열 전기장(N-Te-Fe) 원천 기술 보유.<br/>일본의 공식 파트너십.",
+        logo: "/images/kuraban/kuraban_ex_01.png",
+        label: "WET AGING",
+        name: "쿠라반 활용 사례",
+        desc: "KURABAN이 실현하는 숙성 솔루션<br/>활용 사례 보기",
+        path: "/kuraban_ex",
       },
     ],
   },
@@ -146,7 +147,7 @@ const data = {
         series: "KURABAN-S",
         name: "컴팩트 챔버형",
         capacity: "소형",
-        unit: "일반 냉장고 크기",
+        unit: "",
         desc: '<span class="model-card__desc-em">소형 매장·개인 작업장</span>에 적합.<br/>도입 진입 장벽이 가장 낮은 입문 모델.',
         specs: [
           { label: "동작 온도", value: "-2 ~ -1°C" },
@@ -160,7 +161,7 @@ const data = {
         series: "PHD - Y350KR",
         name: "표준 챔버형",
         capacity: "중형",
-        unit: "표준 사이즈",
+        unit: "",
         featured: true,
         desc: '<span class="model-card__desc-em">호텔·중대형 매장</span>에 도입 되는 모델.<br/>처리량과 활용성이 우수.',
         specs: [
@@ -175,7 +176,7 @@ const data = {
         series: "PHD - LARGE",
         name: "창고형",
         capacity: "대형",
-        unit: "워크인",
+        unit: "",
         desc: '<span class="model-card__desc-em">정육·축산 도매·숙성 전문 사업자</span>에 적합.<br/>보존을 넘어 부가가치 창출까지',
         specs: [
           { label: "동결 온도", value: "-21.3°C" },

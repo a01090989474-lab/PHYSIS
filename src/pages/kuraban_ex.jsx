@@ -1,7 +1,15 @@
+import KurabanExHero from "../components/kuraban_ex/KurabanExHero";
+import KurabanExCompare from "../components/kuraban_ex/KurabanExCompare";
+import KurabanExPillars from "../components/kuraban_ex/KurabanExPillars";
+import KurabanExCaseStudy from "../components/kuraban_ex/KurabanExCaseStudy";
+
 export default function KurabanEx() {
   return (
-    <section className="page">
-      <h1>Kuraban EX</h1>
-    </section>
-  )
+    <>
+      <KurabanExHero />
+      <KurabanExCompare />
+      <KurabanExPillars />
+      <KurabanExCaseStudy />
+    </>
+  );
 }
