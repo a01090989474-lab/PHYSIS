@@ -2,6 +2,7 @@
 
 @mixin container {
   width: calc(100% - #{$section-pad-h} * 2);
+  max-width: 1820px;
   margin: 0 auto;
 }
 
