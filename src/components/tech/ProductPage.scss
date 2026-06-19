@@ -399,7 +399,7 @@
   }
 
   &__image {
-    width: 250px;
+    width: 300px;
 
     @include respond-to(md) {
       width: 100%;

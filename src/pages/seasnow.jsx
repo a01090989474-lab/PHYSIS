@@ -18,7 +18,7 @@ const data = {
         어류 친화적인 냉각 솔루션.
       </>
     ),
-    image: "/images/seasnow/hero.png",
+    image: "/images/seasnow/hero.jpg",
   },
   intro: {
     title: "SEA SNOW",
