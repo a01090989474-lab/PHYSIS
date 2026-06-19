@@ -41,6 +41,7 @@
   border: 1px solid $color-gray-200;
   border-radius: 16px;
   padding: 20px 28px;
+  text-decoration: none;
 
   &__icon {
     flex-shrink: 0;
@@ -56,8 +57,8 @@
   }
 
   &__label {
-    @include section-label;
-    margin-bottom: 6px;
+    color: rgba($text-color, 0.6);
+    margin-bottom: 10px;
   }
 
   &__value {

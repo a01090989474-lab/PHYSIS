@@ -6,7 +6,7 @@ export default function KurabanExHero() {
       <div className="kex-hero__media">
         <img
           className="kex-hero__image"
-          src="/images/kuraban/kuraban_ex_hero.png"
+          src="/images/kurabanEx/kurabanEx_hero.png"
           alt="쿠라반 활용 사례"
         />
         <div className="kex-hero__gradient" />

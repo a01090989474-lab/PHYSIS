@@ -6,7 +6,6 @@
     max-width: 1820px;
     margin: 40px auto 80px;
     background: linear-gradient(135deg, $color-primary 0%, #0a1230 100%);
-    border-radius: 50px;
     padding: 60px 70px;
     color: #fff;
 
@@ -20,40 +19,15 @@
       padding: 40px 32px;
     }
   }
-
-  &__breadcrumb {
-    font-size: $font-size-sm;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 40px;
-
-    a {
-      color: rgba(255, 255, 255, 0.5);
-      text-decoration: none;
-
-      &:hover {
-        color: #fff;
-      }
-    }
-
-    span {
-      margin: 0 8px;
-    }
-
-    strong {
-      color: #fff;
-      font-weight: 600;
-    }
-  }
-
   &__label {
     @include section-label;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba($bg-color, 0.6);
     margin-bottom: 20px;
   }
 
   &__title {
-    font-size: $font-size-3xl;
-    font-weight: 700;
+    font-size: 40px;
+    font-weight: 600;
     margin-bottom: 20px;
 
     @include respond-to(lg) {
@@ -62,8 +36,7 @@
   }
 
   &__desc {
-    font-size: $font-size-md;
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1.6;
+    font-size: 20px;
+    color: $bg-color;
   }
 }

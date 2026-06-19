@@ -1,12 +1,22 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BiSolidUpArrow } from "react-icons/bi";
 import "./ProductPage.scss";
 
 // ── Hero ──────────────────────────────────────────────
 function HeroSection({ hero }) {
   return (
-    <section className="product-hero">
+    <section
+      className={`product-hero${hero.theme === "dark" ? " product-hero--dark" : ""}`}
+    >
+      <div className="product-hero__media">
+        {hero.image && (
+          <img
+            className="product-hero__image"
+            src={hero.image}
+            alt={hero.title}
+          />
+        )}
+        <div className="product-hero__gradient" />
+      </div>
       <div className="product-hero__content">
         <h1 className="product-hero__title">{hero.title}</h1>
         {hero.eyebrow && (
@@ -16,15 +26,6 @@ function HeroSection({ hero }) {
           <p className="product-hero__subtitle">{hero.subtitle}</p>
         )}
         {hero.desc && <p className="product-hero__desc">{hero.desc}</p>}
-      </div>
-      <div className="product-hero__media">
-        {hero.image && (
-          <img
-            className="product-hero__image"
-            src={hero.image}
-            alt={hero.title}
-          />
-        )}
       </div>
     </section>
   );
@@ -61,59 +62,44 @@ function IntroSection({ intro }) {
 }
 
 // ── Features ──────────────────────────────────────────
-function FeaturesSection({ features }) {
-  const [openIndex, setOpenIndex] = useState(0);
-  const activeImage = features.items[openIndex]?.image ?? null;
-
+function FeaturesSection({ features }) 
+{
   return (
     <section className="product-features">
       <div className="product-features__inner">
-        <div className="product-features__head">
-          <h2 className="product-features__title">{features.title}</h2>
-          <p className="product-features__label">{features.subtitle}</p>
-        </div>
-        <div className="product-features__grid">
-          <div className="product-features__image-wrap">
-            {activeImage ? (
-              <img className="product-features__image" src={activeImage} alt="" />
-            ) : (
-              <div className="product-features__image-placeholder" />
-            )}
+        {features.title && (
+          <div className="product-features__head">
+            <h2 className="product-features__title">{features.title}</h2>
+            <p className="product-features__label">{features.subtitle}</p>
           </div>
-          <ul className="product-features__list">
-            {features.items.map((item, i) => (
-              <li key={i} className="feature-item">
-                <button
-                  className={`feature-item__header${openIndex === i ? " feature-item__header--active" : ""}`}
-                  onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                >
-                  <div className="feature-item__meta">
-                    <span className="feature-item__number">{item.number}</span>
-                    <div>
-                      <p className="feature-item__title">{item.title}</p>
-                      <p className="feature-item__subtitle">{item.subtitle}</p>
-                    </div>
-                  </div>
-                  <span
-                    className={`feature-item__toggle${openIndex === i ? " feature-item__toggle--open" : ""}`}
-                  >
-                    <BiSolidUpArrow />
-                  </span>
-                </button>
-                {item.desc && (
-                  <div
-                    className={`feature-item__body${openIndex === i ? " feature-item__body--visible" : ""}`}
-                  >
-                    <p>{item.desc}</p>
-                    {item.chip && (
-                      <span className="feature-item__chip">{item.chip}</span>
-                    )}
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+        )}
+        <ul className="product-features__grid">
+          {features.items.map((item, i) => (
+            <li key={i} className="feature-card">
+              <span className="feature-card__number">{item.number}</span>
+              {item.image && (
+                <img
+                  className="feature-card__image"
+                  src={item.image}
+                  alt={item.title}
+                />
+              )}
+              {item.subtitle && (
+                <p className="feature-card__subtitle">{item.subtitle}</p>
+              )}
+              <p className="feature-card__title">{item.title}</p>
+              <p className="feature-card__desc">{item.desc}</p>
+              {item.chip && (
+                <span className="feature-card__chip">{item.chip}</span>
+              )}
+              {item.link && (
+                <a className="feature-card__link" href={item.link}>
+                  자세히 보기
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -143,29 +129,35 @@ function BenefitsSection({ benefits }) {
   return (
     <section className="product-benefits">
       <div className="product-benefits__inner">
-        <ul className="product-benefits__grid">
+        {benefits.title && (
+          <div className="product-benefits__head">
+            <h2 className="product-benefits__title">{benefits.title}</h2>
+            <p className="product-benefits__label">{benefits.subtitle}</p>
+          </div>
+        )}
+        <ul className="product-benefits__timeline">
           {benefits.items.map((item, i) => (
-            <li key={i} className="benefit-card">
-              <div className="benefit-card__number">{item.number}</div>
-              <div className="benefit-card__box">
-                {item.image ? (
+            <li key={i} className="benefit-step">
+              <div className="benefit-step__rail">
+                <span className="benefit-step__number">{item.number}</span>
+              </div>
+              <div className="benefit-step__content">
+                <div className="benefit-step__body">
+                  {item.subtitle && (
+                    <p className="benefit-step__subtitle">{item.subtitle}</p>
+                  )}
+                  <h3 className="benefit-step__title">{item.title}</h3>
+                  <p className="benefit-step__desc">{item.desc}</p>
+                  {item.chip && (
+                    <span className="benefit-step__chip">{item.chip}</span>
+                  )}
+                </div>
+                {item.image && (
                   <img
-                    className="benefit-card__image"
+                    className="benefit-step__image"
                     src={item.image}
                     alt={item.title}
                   />
-                ) : (
-                  <div className="benefit-card__image" />
-                )}
-                <p className="benefit-card__title">{item.title}</p>
-                <p className="benefit-card__desc">{item.desc}</p>
-                {item.chip && (
-                  <span className="benefit-card__chip">{item.chip}</span>
-                )}
-                {item.link && (
-                  <a className="benefit-card__link" href={item.link}>
-                    자세히 보기
-                  </a>
                 )}
               </div>
             </li>
@@ -202,19 +194,31 @@ function GlobalSection({ global }) {
           </div>
         </div>
         <div className="product-global__partners">
-          {global.partners.map((item, i) => (
-            <div key={i} className="partner-card">
-              <img className="partner-card__logo" src={item.logo} alt={item.name} />
-              <div className="partner-card__content">
-                <p className="partner-card__label">{item.label}</p>
-                <p className="partner-card__name">{item.name}</p>
-                <p
-                  className="partner-card__desc"
-                  dangerouslySetInnerHTML={{ __html: item.desc }}
+          {global.partners.map((item, i) => {
+            const Wrapper = item.path ? Link : "div";
+            const wrapperProps = item.path ? { to: item.path } : {};
+            return (
+              <Wrapper
+                key={i}
+                className={`partner-card${item.path ? " partner-card--link" : ""}`}
+                {...wrapperProps}
+              >
+                <img
+                  className="partner-card__logo"
+                  src={item.logo}
+                  alt={item.name}
                 />
-              </div>
-            </div>
-          ))}
+                <div className="partner-card__content">
+                  <p className="partner-card__label">{item.label}</p>
+                  <p className="partner-card__name">{item.name}</p>
+                  <p
+                    className="partner-card__desc"
+                    dangerouslySetInnerHTML={{ __html: item.desc }}
+                  />
+                </div>
+              </Wrapper>
+            );
+          })}
         </div>
       </div>
     </section>

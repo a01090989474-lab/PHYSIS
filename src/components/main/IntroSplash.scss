@@ -1,0 +1,70 @@
+@use "../../styles/variables" as *;
+@use "../../styles/fill-text";
+
+.intro-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+
+  &--closing {
+    pointer-events: none;
+
+    .intro-splash__bg {
+      opacity: 0;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    transition: opacity 0.7s ease;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  &__text {
+    --fill-color: #fff;
+    --fill-base-color: rgba(255, 255, 255, 0.25);
+
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+    color: #fff;
+  }
+
+  &__temp {
+    font-size: 120px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 64px;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+
+  &__desc {
+    font-size: 30px;
+    max-width: 920px;
+    line-height: 1.4;
+  }
+}

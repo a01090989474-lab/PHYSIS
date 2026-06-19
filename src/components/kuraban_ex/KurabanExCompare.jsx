@@ -48,12 +48,12 @@ export default function KurabanExCompare() {
             </div>
 
             <div className="compare-card__group">
-              <p className="compare-card__group-label compare-card__group-label--neutral">
-                TRADE-OFF
+              <p className="compare-card__group-label compare-card__group-label--negative">
+                DISADVANTAGES
               </p>
               <ul className="compare-card__list">
                 <li className="compare-card__item">
-                  <span className="compare-card__dot compare-card__dot--neutral" />
+                  <span className="compare-card__dot compare-card__dot--negative" />
                   Dry 대비 숙성 향이 약함
                 </li>
               </ul>
@@ -113,8 +113,8 @@ export default function KurabanExCompare() {
         <div className="kex-compare__summary">
           <p className="kex-compare__summary-text">
             <strong>Wet Aging (창고형 Kuraban)</strong>은 손실은 최소화하고
-            부가가치는 극대화하는 가장 효율적인 숙성 방식입니다.
-            위생·수율·운영 효율의 균형이 우수합니다.
+            부가가치는 극대화하는 가장 효율적인 숙성 방식입니다. 위생·수율·운영
+            효율의 균형이 우수합니다.
           </p>
           <div className="kex-compare__summary-stat">수율 ↑ + 손실 ↓</div>
         </div>

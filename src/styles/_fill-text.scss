@@ -1,0 +1,37 @@
+@use "variables" as *;
+
+.fill-text {
+  position: relative;
+  display: block;
+
+  &__base {
+    color: var(--fill-base-color, rgba($text-color, 0.15));
+  }
+
+  &__fill {
+    position: absolute;
+    inset: 0;
+    color: var(--fill-color, $text-color);
+    clip-path: inset(0 100% 0 0);
+    animation: hero-text-fill 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  &--1 .fill-text__fill {
+    animation-delay: 0.6s;
+  }
+  &--2 .fill-text__fill {
+    animation-delay: 1.2s;
+  }
+  &--3 .fill-text__fill {
+    animation-delay: 1.8s;
+  }
+  &--4 .fill-text__fill {
+    animation-delay: 2.4s;
+  }
+}
+
+@keyframes hero-text-fill {
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}

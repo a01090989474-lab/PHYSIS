@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./AboutPartnership.scss";
 
 const features = [
@@ -19,89 +20,142 @@ const features = [
 ];
 
 const trademarks = [
-  { num: "제 30류", desc: "식품·식육 절임·조리품" },
-  { num: "제 7·11류", desc: "기계·냉동·냉장 설비" },
-  { num: "제 37류", desc: "설치·수리·서비스" },
+  {
+    num: "제 11류 외 2개류",
+    desc: "설치·수리·서비스",
+    img: "/images/about/doc01.png",
+  },
+  {
+    num: "제 30류",
+    desc: "식품·식육 절임·조리품",
+    img: "/images/about/doc02.png",
+  },
+  {
+    num: "제 37류 외 1개류",
+    desc: "기계·냉동·냉장 설비",
+    img: "/images/about/doc03.png",
+  },
 ];
 
 export default function AboutPartnership() {
+  const [activeDoc, setActiveDoc] = useState(null);
+
+  useEffect(() => {
+    if (!activeDoc) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setActiveDoc(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeDoc]);
+
   return (
-    <section className="about-partner">
-      <div className="about-partner__inner">
-        <p className="about-partner__eyebrow">WITH US — GLOBAL PARTNERSHIP</p>
-        <h2 className="about-partner__title">
-          세계적 기술 파트너와 함께합니다
-        </h2>
-        <p className="about-partner__subtitle">
-          Built on world-class research partnerships.
-        </p>
+    <>
+      <section className="about-partner">
+        <div className="about-partner__inner">
+          <p className="about-partner__eyebrow">
+            WITH US — GLOBAL PARTNERSHIP
+          </p>
+          <h2 className="about-partner__title">
+            세계적 기술 파트너와 함께합니다
+          </h2>
+          <p className="about-partner__subtitle">
+            Built on world-class research partnerships.
+          </p>
 
-        <div className="about-partner__mars">
-          <div className="about-partner__mars-logo">
-            <span>
-              MARS Company
-              <br />
-              로고
-            </span>
-          </div>
-          <div className="about-partner__mars-info">
-            <p className="about-partner__mars-tag">CORE TECHNOLOGY PARTNER</p>
-            <h3 className="about-partner__mars-name">
-              MARS Company
-              <br />
-              마즈컴퍼니
-            </h3>
-            <p className="about-partner__mars-desc">
-              2006년 설립된 일본 근마현 기반의 냉동·냉장 솔루션 전문 기업.
-              비열에너지 연구개발과 냉동·냉장·해빙·제빙 장치의 정치를 제조를
-              전문으로 합니다.
-            </p>
-            <div className="about-partner__mars-meta">
-              <p>
-                <strong>설립</strong> 2006년, 일본 군마현 다카사키시
+          <div className="about-partner__mars">
+            <div className="about-partner__mars-logo">
+              <img
+                src="/images/kuraban/mars_logo.png"
+                alt="MARS Company 로고"
+              />
+            </div>
+            <div className="about-partner__mars-info">
+              <p className="about-partner__mars-tag">CORE TECHNOLOGY PARTNER</p>
+              <h3 className="about-partner__mars-name">
+                MARS Company
+                <br />
+                마즈컴퍼니
+              </h3>
+              <p className="about-partner__mars-desc">
+                2006년 설립된 일본 근마현 기반의 냉동·냉장 솔루션 전문 기업.
+                비열에너지 연구개발과 냉동·냉장·해빙·제빙 장치의 정치를 제조를
+                전문으로 합니다.
               </p>
-              <p>
-                <strong>전문 분야</strong> 비열에너지 R&amp;D · 냉동·냉장 설비
-                설계 · 신지 유통 네트워크
-              </p>
+              <div className="about-partner__mars-meta">
+                <p>
+                  <strong>설립</strong> 2006년, 일본 군마현 다카사키시
+                </p>
+                <p>
+                  <strong>전문 분야</strong> 비열에너지 R&amp;D · 냉동·냉장
+                  설비 설계 · 신지 유통 네트워크
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="about-partner__features">
-          {features.map((f) => (
-            <div key={f.tag} className="about-partner__feature">
-              <p className="about-partner__feature-tag">{f.tag}</p>
-              <p className="about-partner__feature-title">{f.title}</p>
-              <p className="about-partner__feature-desc">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="about-partner__trademarks">
-          <div className="about-partner__tm-header">
-            <p className="about-partner__tm-label">REGISTERED TRADEMARKS</p>
-            <h3 className="about-partner__tm-title">
-              등록상표 보유 — 식품·기계·설치 전 영역
-            </h3>{" "}
-          </div>
-          <div className="about-partner__tm-grid">
-            {trademarks.map((t) => (
-              <div key={t.num} className="about-partner__tm-card">
-                <div className="about-partner__tm-img">
-                  <span>
-                    등록상표
-                    <br />
-                    샘플
-                  </span>
-                </div>
-                <p className="about-partner__tm-num">{t.num}</p>
-                <p className="about-partner__tm-desc">{t.desc}</p>
+          <div className="about-partner__features">
+            {features.map((f) => (
+              <div key={f.tag} className="about-partner__feature">
+                <p className="about-partner__feature-tag">{f.tag}</p>
+                <p className="about-partner__feature-title">{f.title}</p>
+                <p className="about-partner__feature-desc">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section className="about-partner-tm">
+        <div className="about-partner-tm__inner">
+          <div className="about-partner-tm__header">
+            <h3 className="about-partner-tm__title">
+              등록상표 보유 — 식품·기계·설치 전 영역
+            </h3>
+            <p className="about-partner-tm__label">REGISTERED TRADEMARKS</p>
+          </div>
+          <div className="about-partner-tm__grid">
+            {trademarks.map((t) => (
+              <div key={t.num} className="about-partner-tm__card">
+                <button
+                  type="button"
+                  className="about-partner-tm__img"
+                  onClick={() => setActiveDoc(t)}
+                  aria-label={`${t.num} 등록상표 이미지 확대 보기`}
+                >
+                  <img src={t.img} alt={`등록상표 ${t.num}`} />
+                </button>
+                <p className="about-partner-tm__num">{t.num}</p>
+                <p className="about-partner-tm__desc">{t.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {activeDoc && (
+        <div
+          className="about-partner-tm__lightbox"
+          onClick={() => setActiveDoc(null)}
+        >
+          <button
+            type="button"
+            className="about-partner-tm__lightbox-close"
+            onClick={() => setActiveDoc(null)}
+            aria-label="닫기"
+          >
+            ✕
+          </button>
+          <img
+            key={activeDoc.num}
+            src={activeDoc.img}
+            alt={`등록상표 ${activeDoc.num}`}
+            className="about-partner-tm__lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
   );
 }

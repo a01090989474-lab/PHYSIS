@@ -14,7 +14,7 @@ export default function AboutHero() {
           </p>
         </div>
         <div className="about-hero__image">
-          <span>대표이사 사진<br />(와이드 — 21:9)</span>
+          <img src="/images/logo.png" alt="PHYSIS 로고" />
         </div>
       </div>
     </section>

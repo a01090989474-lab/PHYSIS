@@ -1,4 +1,5 @@
-import { BiPhone, BiEnvelope, BiMessageRoundedDots } from "react-icons/bi";
+import { BiPhone, BiEnvelope } from "react-icons/bi";
+import { FaYoutube } from "react-icons/fa";
 import KakaoMap from "./KakaoMap";
 import "./ContactInfo.scss";
 
@@ -14,16 +15,17 @@ const contactChannels = [
     value: "socool9999@naver.com",
   },
   {
-    icon: BiMessageRoundedDots,
-    label: "KAKAOTALK",
-    value: "카카오톡 채널 상담",
+    icon: FaYoutube,
+    label: "YouTube",
+    value: "유튜브 바로가기",
+    href: "https://www.youtube.com/@hybridice-21",
   },
 ];
 
 const companyInfo = [
   { label: "회사명", value: "PHYSIS Co. (파이시스)" },
   { label: "사업자등록번호", value: "641-25-01953" },
-  { label: "운영 시간", value: "평일 09:00~18:00)" },
+  { label: "운영 시간", value: "평일 09:00~18:00" },
 ];
 
 export default function ContactInfo() {
@@ -31,12 +33,11 @@ export default function ContactInfo() {
     <section className="contact-info">
       <div className="contact-info__grid">
         <div className="contact-info__col">
-          <p className="contact-info__heading">GET IN TOUCH</p>
           <div className="contact-channels">
             {contactChannels.map((item) => {
               const Icon = item.icon;
-              return (
-                <div className="contact-channel" key={item.label}>
+              const content = (
+                <>
                   <span className="contact-channel__icon">
                     <Icon />
                   </span>
@@ -44,6 +45,21 @@ export default function ContactInfo() {
                     <p className="contact-channel__label">{item.label}</p>
                     <p className="contact-channel__value">{item.value}</p>
                   </div>
+                </>
+              );
+              return item.href ? (
+                <a
+                  className="contact-channel"
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {content}
+                </a>
+              ) : (
+                <div className="contact-channel" key={item.label}>
+                  {content}
                 </div>
               );
             })}
@@ -61,7 +77,6 @@ export default function ContactInfo() {
         </div>
 
         <div className="contact-info__col">
-          <p className="contact-info__heading">LOCATION</p>
           <div className="contact-map">
             <KakaoMap />
           </div>
@@ -75,7 +90,10 @@ export default function ContactInfo() {
               (매화동, 리드스마트스퀘어)
             </p>
             <div className="contact-office__actions">
-              <a className="contact-office__btn" href="#">
+              <a
+                className="contact-office__btn"
+                href="https://kko.to/Whm7BxdpEy"
+              >
                 자세히 보기
               </a>
             </div>

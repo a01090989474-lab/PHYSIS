@@ -1,9 +1,31 @@
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './ProductCard.scss'
 
-export default function ProductCard({ name, badge, badgeColor, temp, desc, features, image, link }) {
+export default function ProductCard({ name, badge, badgeColor, temp, desc, features, image, link, index = 0 }) {
+  const cardRef = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 },
+    )
+    if (cardRef.current) observer.observe(cardRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="product-card">
+    <section
+      ref={cardRef}
+      className={`product-card${visible ? ' product-card--visible' : ''}`}
+      style={{ '--delay': `${index * 0.15}s` }}
+    >
       <div className="product-card__inner">
         <div className="product-card__text">
           <div className="product-card__name-row">

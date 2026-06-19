@@ -12,7 +12,7 @@ const products = [
         value: "원양·연근해 수산물 · 축산 가공 · 냉동 가공식품 · 콜드체인 수출",
       },
     ],
-    image: "images/hybrid/hybrid_01.png",
+    image: "images/hybrid/hybrid_02.png",
     link: "/hybridice",
   },
   {
@@ -28,7 +28,7 @@ const products = [
         value: "스시 · 횟감 · 숙성육 전문점 · 호텔 · 고급 외식 · 제과제빵 원료",
       },
     ],
-    image: "images/main_con2_02.png",
+    image: "images/kuraban.png",
     link: "/kuraban",
   },
   {
@@ -44,7 +44,7 @@ const products = [
         value: "활어 운반 · 수산물 경매장 · 선상 저장 · 수산물 소매 진열",
       },
     ],
-    image: "images/main_con2_03.png",
+    image: "images/seasnow.png",
     link: "/seasnow",
   },
 ];

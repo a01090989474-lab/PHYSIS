@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Layout from "./layouts/Layout";
 import Main from "./pages/main";
 import HybridIce from "./pages/hybridice";
@@ -11,6 +12,7 @@ import Contact from "./pages/contact";
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Main />} />
