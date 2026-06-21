@@ -31,18 +31,14 @@ $color-danger: #c0392b;
   }
 
   &__title {
-    font-size: $font-size-3xl;
+    font-size: fluid(24, 40);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 16px;
-
-    @include respond-to(lg) {
-      font-size: $font-size-2xl;
-    }
   }
 
   &__sub {
-    font-size: $font-size-lg;
+    font-size: fluid(15, 20);
     color: rgba($text-color, 0.5);
   }
 
@@ -77,7 +73,7 @@ $color-danger: #c0392b;
   }
 
   &__summary-text {
-    font-size: $font-size-md;
+    font-size: fluid(14, 18);
     color: rgba($text-color, 0.6);
     line-height: 1.6;
 
@@ -92,7 +88,7 @@ $color-danger: #c0392b;
     background: $color-gray-100;
     border-radius: 16px;
     padding: 18px 32px;
-    font-size: $font-size-xl;
+    font-size: fluid(17, 24);
     font-weight: 600;
     color: $color-primary;
     white-space: nowrap;
@@ -124,7 +120,7 @@ $color-danger: #c0392b;
     align-self: flex-start;
     padding: 8px 18px;
     border-radius: 50px;
-    font-size: $font-size-xs;
+    font-size: fluid(12, 14);
     font-weight: 600;
     letter-spacing: 0.05em;
     margin-bottom: 28px;
@@ -146,7 +142,7 @@ $color-danger: #c0392b;
   }
 
   &__title {
-    font-size: $font-size-2xl;
+    font-size: fluid(20, 32);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 16px;
@@ -157,7 +153,7 @@ $color-danger: #c0392b;
   }
 
   &__desc {
-    font-size: $font-size-md;
+    font-size: fluid(14, 18);
     color: rgba($text-color, 0.5);
     line-height: 1.5;
     margin-bottom: 36px;
@@ -194,7 +190,7 @@ $color-danger: #c0392b;
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    font-size: $font-size-md;
+    font-size: fluid(14, 18);
     color: $text-color;
     line-height: 1.5;
 

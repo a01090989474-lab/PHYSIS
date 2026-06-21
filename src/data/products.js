@@ -5,7 +5,7 @@ const products = [
     badge: "RAPID FREEZE",
     badgeColor: "#1a3fa0",
     temp: "-21.3°C",
-    desc: "염수 슬러시 기반 침지 동결로, 액체질소 없이 -21.3℃를 구현합니다. 일반 냉동 대비 100배 빠른 속도로 세포를 보존합니다.",
+    desc: "염수 슬러리 기반 침지 동결로, 액체질소 없이 -21.3℃를 구현합니다. 일반 냉동 대비 100배 빠른 속도로 세포를 보존합니다.",
     features: [
       {
         label: "BEST FOR",
@@ -37,7 +37,7 @@ const products = [
     badge: "FISH - SAFE ICE",
     badgeColor: "#5BB8FF",
     temp: "-1°C",
-    desc: "염도 1%의 어류 친화 슬러시 아이스 어류 체액과 동일한 농도로 삼투 손실을 막고, 눈처럼 부드러운 결정이 표면 손상을 줄입니다.",
+    desc: "염도 1%의 어류 친화 슬러리 아이스 어류 체액과 동일한 농도로 삼투 손실을 막고, 눈처럼 부드러운 결정이 표면 손상을 줄입니다.",
     features: [
       {
         label: "BEST FOR",

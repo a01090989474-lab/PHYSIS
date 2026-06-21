@@ -1,8 +1,16 @@
+import { useEffect, useState } from "react";
 import "./AboutHero.scss";
 
 export default function AboutHero() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setVisible(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   return (
-    <section className="about-hero">
+    <section className={`about-hero${visible ? " about-hero--visible" : ""}`}>
       <div className="about-hero__inner">
         <div className="about-hero__text">
           <p className="about-hero__label">ABOUT PHYSIS</p>

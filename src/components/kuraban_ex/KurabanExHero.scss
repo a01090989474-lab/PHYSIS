@@ -6,12 +6,11 @@
   width: 100%;
   max-width: 1820px;
   margin: 100px auto;
-  height: 600px;
+  height: fluid(360, 600);
   overflow: hidden;
   border-radius: 40px;
 
   @include respond-to(lg) {
-    height: 460px;
     margin: 60px auto;
     border-radius: 30px;
   }
@@ -47,11 +46,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 $section-pad-h;
+    padding: 0 fluid(20, 170);
 
     @include respond-to(lg) {
       max-width: 100%;
-      padding: 0 40px;
     }
   }
 
@@ -62,35 +60,23 @@
   }
 
   &__title {
-    font-size: 50px;
+    font-size: fluid(25, 50);
     font-weight: 600;
     color: #fff;
     margin-bottom: 24px;
-
-    @include respond-to(lg) {
-      font-size: $font-size-3xl;
-    }
   }
 
   &__sub {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.5;
-
-    @include respond-to(lg) {
-      font-size: $font-size-md;
-    }
   }
 
   &__desc {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.5;
     margin-top: 20px;
-
-    @include respond-to(lg) {
-      font-size: $font-size-sm;
-    }
   }
 
   &__about {
@@ -109,17 +95,13 @@
   }
 
   &__about-desc {
-    font-size: 17px;
+    font-size: fluid(14, 17);
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.6;
 
     strong {
       color: #fff;
       font-weight: 600;
-    }
-
-    @include respond-to(lg) {
-      font-size: $font-size-sm;
     }
   }
 }

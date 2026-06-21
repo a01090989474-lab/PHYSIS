@@ -45,15 +45,15 @@
 
   &__icon {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: fluid(36, 48);
+    height: fluid(36, 48);
     border-radius: 50%;
     background: $color-blue-light;
     color: $color-primary;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: fluid(16, 22);
   }
 
   &__label {
@@ -62,7 +62,7 @@
   }
 
   &__value {
-    font-size: $font-size-md;
+    font-size: fluid(14, 18);
     color: $text-color;
   }
 }
@@ -81,12 +81,12 @@
 
     dt {
       flex-shrink: 0;
-      font-size: $font-size-sm;
+      font-size: fluid(13, 16);
       color: rgba($text-color, 0.5);
     }
 
     dd {
-      font-size: $font-size-sm;
+      font-size: fluid(13, 16);
       color: $text-color;
       text-align: right;
     }
@@ -119,14 +119,14 @@
   }
 
   &__name {
-    font-size: $font-size-xl;
+    font-size: fluid(17, 24);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 16px;
   }
 
   &__address {
-    font-size: $font-size-md;
+    font-size: fluid(14, 18);
     color: rgba($text-color, 0.6);
     line-height: 1.6;
     margin-bottom: 28px;
@@ -149,7 +149,7 @@
     background: #fff;
     border: 1px solid $color-gray-200;
     color: $text-color;
-    font-size: $font-size-sm;
+    font-size: fluid(13, 16);
     font-weight: 600;
     text-decoration: none;
     transition:

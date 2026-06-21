@@ -17,6 +17,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
   }
 
   &__name-row {
@@ -27,26 +32,26 @@
   }
 
   &__name {
-    font-size: 50px;
+    font-size: fluid(25, 50);
     font-weight: 500;
     color: $text-color;
   }
 
   &__badge {
-    font-size: 15px;
+    font-size: fluid(13, 15);
     color: $bg-color;
     padding: 8px 18px;
     border-radius: 50px;
   }
 
   &__temp {
-    font-size: 34px;
+    font-size: fluid(20, 34);
     color: $text-color;
     margin-bottom: 16px;
   }
 
   &__desc {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: $text-color;
     line-height: 1.2;
     margin-bottom: 50px;
@@ -66,13 +71,13 @@
   }
 
   &__feature-label {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: rgba($text-color, 0.5);
     font-weight: 300;
   }
 
   &__feature-value {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     line-height: 1.2;
     color: $text-color;
   }
@@ -82,7 +87,7 @@
     padding: 10px 36px;
     background: $color-primary;
     color: $bg-color;
-    font-size: 21px;
+    font-size: fluid(15, 21);
     border-radius: 50px;
     transition: opacity 0.2s;
 
@@ -119,14 +124,14 @@
   padding-top: 200px;
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }

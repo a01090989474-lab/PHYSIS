@@ -1,19 +1,63 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *;
 
+// ── Reveal helpers ────────────────────────────────────
+@keyframes product-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin reveal-up($distance: 30px, $duration: 0.7s) {
+  opacity: 0;
+  transform: translateY($distance);
+  transition:
+    opacity $duration ease,
+    transform $duration ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@mixin reveal-stagger($distance: 40px, $duration: 0.8s) {
+  opacity: 0;
+  transform: translateY($distance);
+  transition:
+    opacity $duration ease,
+    transform $duration ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // ── Hero ──────────────────────────────────────────────
 .product-hero {
   position: relative;
   width: 100%;
   max-width: 1820px;
   margin: 100px auto;
-  height: 600px;
+  height: fluid(360, 600);
   overflow: hidden;
   border-radius: 50px;
   background: $color-blue-light;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 
-  @include respond-to(lg) {
-    height: 460px;
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &__media {
@@ -65,34 +109,29 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 $section-pad-h;
+    padding: 0 fluid(20, 170);
 
     @include respond-to(lg) {
       max-width: 100%;
-      padding: 0 40px;
     }
   }
 
   &__eyebrow {
-    font-size: 22px;
+    font-size: fluid(16, 22);
     color: $text-color;
     margin-bottom: 60px;
     font-weight: 300;
   }
 
   &__title {
-    font-size: 50px;
+    font-size: fluid(25, 50);
     font-weight: 600;
     color: $color-primary;
     margin-bottom: 10px;
-
-    @include respond-to(lg) {
-      font-size: $font-size-3xl;
-    }
   }
 
   &__subtitle {
-    font-size: 30px;
+    font-size: fluid(18, 30);
     color: $text-color;
     line-height: 1.2;
     margin-bottom: 40px;
@@ -100,7 +139,7 @@
   }
 
   &__desc {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     color: $text-color;
     line-height: 1.2;
   }
@@ -122,15 +161,19 @@
     }
   }
 
+  &__head {
+    @include reveal-up;
+  }
+
   &__label {
-    font-size: 26px;
-    font-weight: 500;
+    font-size: fluid(17, 28);
+    font-weight: 600;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__caption {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
     letter-spacing: -0.025em;
@@ -140,18 +183,33 @@
     @include section-label;
 
     &--large {
-      font-size: 19px;
+      font-size: fluid(15, 19);
       font-weight: 400;
       color: $text-color;
-      line-height: 1.2;
+      line-height: 1.7;
       text-transform: none;
       letter-spacing: -0.025em;
 
       strong {
-        font-size: 24px;
+        font-size: fluid(17, 24);
         font-weight: 500;
         color: $color-primary;
       }
+    }
+  }
+
+  &__line {
+    display: block;
+    opacity: 0;
+    transform: translateX(-28px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+    transition-delay: var(--delay, 0s);
+
+    &--visible {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }
@@ -166,10 +224,11 @@
 
   &__head {
     margin-bottom: 100px;
+    @include reveal-up;
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     letter-spacing: -0.025em;
@@ -177,7 +236,7 @@
   }
 
   &__label {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }
@@ -200,10 +259,24 @@
 .feature-card {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.4s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+  }
 
   &__number {
     display: block;
-    font-size: 28px;
+    font-size: fluid(20, 28);
     font-weight: 600;
     color: $color-primary;
     letter-spacing: -0.025em;
@@ -227,14 +300,14 @@
   }
 
   &__title {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 12px;
   }
 
   &__desc {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: rgba($text-color, 0.7);
     line-height: 1.5;
     flex: 1;
@@ -244,7 +317,7 @@
   &__chip {
     @include chip(0);
     align-self: flex-start;
-    font-size: 14px;
+    font-size: fluid(12, 14);
     font-weight: 400;
   }
 }
@@ -267,20 +340,26 @@
   }
 
   &__col {
+    @include reveal-up;
+
     &--right {
       padding-left: 110px;
+    }
+
+    &--right.product-tech__col--visible {
+      transition-delay: 0.25s;
     }
   }
 
   &__name {
-    font-size: 40px;
+    font-size: fluid(24, 40);
     font-weight: 500;
     letter-spacing: -0.025em;
     color: $color-primary;
   }
 
   &__desc {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     color: $text-color;
     line-height: 1.3;
   }
@@ -290,17 +369,19 @@
 .product-benefits {
   &__inner {
     @include container;
-    padding: 100px 0;
+    padding-top: 100px;
+    padding-bottom: 100px;
     border-top: 1px solid $color-gray-200;
     border-bottom: 1px solid $color-gray-200;
   }
 
   &__head {
     margin-bottom: 100px;
+    @include reveal-up;
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     letter-spacing: -0.025em;
@@ -308,7 +389,7 @@
   }
 
   &__label {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }
@@ -326,6 +407,7 @@
   display: flex;
   gap: $rail-gap;
   padding-bottom: 60px;
+  @include reveal-stagger;
 
   &:last-child {
     padding-bottom: 0;
@@ -363,7 +445,7 @@
     border: 2px solid $color-primary;
     color: $color-primary;
     background: #fff;
-    font-size: 20px;
+    font-size: fluid(14, 20);
     font-weight: 600;
     position: relative;
     z-index: 1;
@@ -377,7 +459,14 @@
     left: 50%;
     width: 1px;
     background: $color-gray-200;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+    transition: transform 1.4s ease;
+    transition-delay: 0.25s;
+  }
+
+  &--visible &__rail::after {
+    transform: translateX(-50%) scaleY(1);
   }
 
   &__content {
@@ -398,13 +487,29 @@
     max-width: 640px;
   }
 
-  &__image {
-    width: 300px;
+  &__image-btn {
+    display: block;
+    width: fluid(220, 300);
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
 
     @include respond-to(md) {
       width: 100%;
       max-width: 280px;
     }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
   }
 
   &__subtitle {
@@ -414,14 +519,14 @@
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 14px;
   }
 
   &__desc {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: rgba($text-color, 0.7);
     line-height: 1.5;
     margin-bottom: 18px;
@@ -429,8 +534,39 @@
 
   &__chip {
     @include chip(0);
-    font-size: 16px;
+    font-size: fluid(14, 16);
     font-weight: 400;
+  }
+}
+
+.benefit-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  animation: product-fade-in-up 0.25s ease;
+
+  &__image {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: fluid(24, 36);
+    line-height: 1;
+    cursor: pointer;
   }
 }
 
@@ -445,17 +581,18 @@
   &__head {
     text-align: center;
     margin-bottom: 100px;
+    @include reveal-up;
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }
@@ -466,6 +603,7 @@
     padding: 60px 40px;
     text-align: center;
     margin-bottom: 50px;
+    @include reveal-up;
   }
 
   &__stat-label {
@@ -474,18 +612,14 @@
   }
 
   &__stat-value {
-    font-size: 64px;
+    font-size: fluid(36, 64);
     font-weight: 600;
     color: $color-primary;
     margin-bottom: 16px;
-
-    @include respond-to(md) {
-      font-size: 48px;
-    }
   }
 
   &__stat-desc {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: $text-color;
     margin-bottom: 50px;
   }
@@ -513,20 +647,20 @@
   }
 
   &__breakdown-value {
-    font-size: 40px;
+    font-size: fluid(24, 40);
     font-weight: 600;
     color: $color-primary;
     margin-bottom: 12px;
   }
 
   &__breakdown-label {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: $text-color;
     margin-bottom: 4px;
   }
 
   &__breakdown-sublabel {
-    font-size: 14px;
+    font-size: fluid(12, 14);
     color: rgba($text-color, 0.5);
   }
 
@@ -548,6 +682,7 @@
   background: #fff;
   border-radius: 24px;
   padding: 20px 30px;
+  @include reveal-stagger;
 
   @include respond-to(md) {
     flex-direction: column;
@@ -557,7 +692,8 @@
   &--link {
     cursor: pointer;
     transition:
-      transform 0.2s ease,
+      opacity 0.6s ease,
+      transform 0.4s ease,
       box-shadow 0.2s ease;
 
     &:hover {
@@ -567,26 +703,26 @@
   }
 
   &__logo {
-    width: 180px;
+    width: fluid(120, 180);
     flex-shrink: 0;
     object-fit: contain;
   }
 
   &__label {
-    font-size: 14px;
+    font-size: fluid(12, 14);
     color: rgba($text-color, 0.5);
     margin-bottom: 4px;
   }
 
   &__name {
-    font-size: 22px;
+    font-size: fluid(16, 22);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 8px;
   }
 
   &__desc {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: $text-color;
     line-height: 1.2;
   }
@@ -602,10 +738,11 @@
 
   &__head {
     margin-bottom: 100px;
+    @include reveal-up;
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     letter-spacing: -0.025em;
@@ -613,7 +750,7 @@
   }
 
   &__sub {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
     letter-spacing: -0.025em;
@@ -638,9 +775,17 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(40px);
   transition:
-    border-color 0.25s,
-    transform 0.25s;
+    opacity 0.6s ease,
+    transform 0.4s ease,
+    border-color 0.25s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   &:hover {
     border-color: $color-primary;
@@ -661,7 +806,7 @@
     right: 20px;
     background: $color-primary;
     color: #fff;
-    font-size: 14px;
+    font-size: fluid(12, 14);
     font-weight: 300;
     padding: 8px 16px;
     border-radius: 50px;
@@ -670,11 +815,11 @@
   &__series {
     color: rgba($text-color, 0.5);
     margin-bottom: 16px;
-    font-size: 16px;
+    font-size: fluid(14, 16);
   }
 
   &__name {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 20px;
@@ -687,7 +832,7 @@
   }
 
   &__capacity-label {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: rgba($text-color, 0.5);
     margin-bottom: 20px;
   }
@@ -700,18 +845,18 @@
   }
 
   &__capacity {
-    font-size: 45px;
+    font-size: fluid(28, 45);
     font-weight: 600;
     color: $color-primary;
   }
 
   &__capacity-unit {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     color: rgba($text-color, 0.5);
   }
 
   &__desc {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: rgba($text-color, 0.5);
     line-height: 1.2;
     margin-bottom: 30px;
@@ -743,12 +888,12 @@
   }
 
   &__spec-label {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: $text-color;
   }
 
   &__spec-value {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 500;
     color: $text-color;
   }
@@ -759,7 +904,7 @@
     padding: 10px;
     border-radius: 50px;
     color: $text-color;
-    font-size: 18px;
+    font-size: fluid(15, 18);
     text-align: center;
     cursor: pointer;
     border: 1px solid $color-primary;
@@ -785,10 +930,11 @@
 
   &__head {
     margin-bottom: 100px;
+    @include reveal-up;
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     letter-spacing: -0.025em;
@@ -796,7 +942,7 @@
   }
 
   &__label {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
     letter-spacing: -0.025em;
@@ -822,6 +968,7 @@
   background: #fff;
   display: flex;
   flex-direction: column;
+  @include reveal-stagger;
 
   &__image-wrap {
     width: 100%;
@@ -848,20 +995,20 @@
   }
 
   &__category {
-    font-size: 14px;
+    font-size: fluid(12, 14);
     color: rgba($text-color, 0.5);
     margin-bottom: 8px;
   }
 
   &__title {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 16px;
   }
 
   &__desc {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: $text-color;
     line-height: 1.2;
   }
@@ -878,17 +1025,18 @@
   &__head {
     text-align: center;
     margin-bottom: 100px;
+    @include reveal-up;
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }
@@ -897,6 +1045,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    @include reveal-up;
 
     @include respond-to(md) {
       grid-template-columns: 1fr;
@@ -928,7 +1077,7 @@
   &__image {
     display: block;
     width: 100%;
-    height: 180px;
+    height: fluid(120, 180);
     margin: auto;
     object-fit: contain;
   }
@@ -942,26 +1091,26 @@
   }
 
   &__tname {
-    font-size: 13px;
+    font-size: fluid(11, 13);
     color: $color-primary;
     margin-bottom: 4px;
   }
 
   &__name {
-    font-size: 22px;
+    font-size: fluid(16, 22);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__desc {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: $text-color;
     line-height: 1.2;
   }
 
   &__arrow {
-    font-size: 20px;
+    font-size: fluid(15, 20);
     color: $text-color;
     flex-shrink: 0;
   }

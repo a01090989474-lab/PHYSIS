@@ -1,5 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./AboutPartnership.scss";
+
+function useReveal(threshold = 0.15) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, visible];
+}
 
 const features = [
   {
@@ -39,6 +60,8 @@ const trademarks = [
 
 export default function AboutPartnership() {
   const [activeDoc, setActiveDoc] = useState(null);
+  const [partnerRef, partnerVisible] = useReveal();
+  const [tmRef, tmVisible] = useReveal();
 
   useEffect(() => {
     if (!activeDoc) return;
@@ -52,19 +75,27 @@ export default function AboutPartnership() {
 
   return (
     <>
-      <section className="about-partner">
+      <section className="about-partner" ref={partnerRef}>
         <div className="about-partner__inner">
-          <p className="about-partner__eyebrow">
-            WITH US — GLOBAL PARTNERSHIP
-          </p>
-          <h2 className="about-partner__title">
-            세계적 기술 파트너와 함께합니다
-          </h2>
-          <p className="about-partner__subtitle">
+          <div
+            className={`about-partner__head${partnerVisible ? " about-partner__head--visible" : ""}`}
+          >
+            <p className="about-partner__eyebrow">
+              WITH US — GLOBAL PARTNERSHIP
+            </p>
+            <h2 className="about-partner__title">
+              세계적 기술 파트너와 함께합니다
+            </h2>
+          </div>
+          <p
+            className={`about-partner__subtitle${partnerVisible ? " about-partner__subtitle--visible" : ""}`}
+          >
             Built on world-class research partnerships.
           </p>
 
-          <div className="about-partner__mars">
+          <div
+            className={`about-partner__mars${partnerVisible ? " about-partner__mars--visible" : ""}`}
+          >
             <div className="about-partner__mars-logo">
               <img
                 src="/images/kuraban/mars_logo.png"
@@ -96,8 +127,12 @@ export default function AboutPartnership() {
           </div>
 
           <div className="about-partner__features">
-            {features.map((f) => (
-              <div key={f.tag} className="about-partner__feature">
+            {features.map((f, i) => (
+              <div
+                key={f.tag}
+                className={`about-partner__feature${partnerVisible ? " about-partner__feature--visible" : ""}`}
+                style={{ "--delay": `${0.9 + i * 0.15}s` }}
+              >
                 <p className="about-partner__feature-tag">{f.tag}</p>
                 <p className="about-partner__feature-title">{f.title}</p>
                 <p className="about-partner__feature-desc">{f.desc}</p>
@@ -107,17 +142,23 @@ export default function AboutPartnership() {
         </div>
       </section>
 
-      <section className="about-partner-tm">
+      <section className="about-partner-tm" ref={tmRef}>
         <div className="about-partner-tm__inner">
-          <div className="about-partner-tm__header">
+          <div
+            className={`about-partner-tm__header${tmVisible ? " about-partner-tm__header--visible" : ""}`}
+          >
             <h3 className="about-partner-tm__title">
               등록상표 보유 — 식품·기계·설치 전 영역
             </h3>
             <p className="about-partner-tm__label">REGISTERED TRADEMARKS</p>
           </div>
           <div className="about-partner-tm__grid">
-            {trademarks.map((t) => (
-              <div key={t.num} className="about-partner-tm__card">
+            {trademarks.map((t, i) => (
+              <div
+                key={t.num}
+                className={`about-partner-tm__card${tmVisible ? " about-partner-tm__card--visible" : ""}`}
+                style={{ "--delay": `${i * 0.3}s` }}
+              >
                 <button
                   type="button"
                   className="about-partner-tm__img"

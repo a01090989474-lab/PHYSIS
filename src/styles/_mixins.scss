@@ -1,9 +1,20 @@
 @use 'variables' as *;
+@use 'sass:math';
+
+// 모바일(min)~데스크탑(max) 기준폭 사이에서 px 값을 뷰포트 비율로 보간한다.
+// 기준폭 미만/초과 구간에서는 min/max로 고정된다.
+@function fluid($min, $max, $min-vw: $fluid-min-vw, $max-vw: $fluid-max-vw) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $y-intercept: $min - $slope * $min-vw;
+  @return clamp(#{$min}px, #{$y-intercept}px + #{$slope * 100}vw, #{$max}px);
+}
 
 @mixin container {
-  width: calc(100% - #{$section-pad-h} * 2);
+  box-sizing: border-box;
+  width: 100%;
   max-width: 1820px;
   margin: 0 auto;
+  padding: 0 fluid(20, 170);
 }
 
 @mixin section-padding {
@@ -37,7 +48,7 @@
 }
 
 @mixin section-label {
-  font-size: $font-size-xs;
+  font-size: fluid(12, 14);
   text-transform: uppercase;
   color: $color-gray-400;
 }
@@ -48,7 +59,7 @@
   padding: 6px 18px;
   background: $color-primary;
   color: $bg-color;
-  font-size: $font-size-xs;
+  font-size: fluid(12, 14);
   font-weight: 600;
   border-radius: 50px;
 }

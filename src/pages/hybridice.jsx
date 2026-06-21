@@ -25,7 +25,7 @@ const data = {
     subtitle: (
       <>
         <strong>23.5% 고염도 염수</strong>를 −21.3℃로 유지하는 슬러쉬 기반 침지
-        동결 시스템입니다.
+        동결 시스템
         <br />
         <br />
         액체질소나 프레온 같은 화학 냉매를 사용하지 않고,
@@ -72,7 +72,7 @@ const data = {
   },
   tech: {
     name: "DIPS",
-    desc: 'Dipping Ice Processing System —<br/>식품을 슬러시에 직접 담가 순간적으로 동결하는 차세대 침지 동결 기술입니다.<br/>표면 전체가 동시에 냉기와 접촉하기 때문에 기존 급랭 방식의 한계인 <span class="product-tech__emphasis">중심부 동결 지연*</span> 을 근본적으로 해소합니다.',
+    desc: 'Dipping Ice Processing System —<br/>식품을 슬러리에 직접 담가 순간적으로 동결하는 차세대 침지 동결 기술입니다.<br/>표면 전체가 동시에 냉기와 접촉하기 때문에 기존 급랭 방식의 한계인 <span class="product-tech__emphasis">중심부 동결 지연*</span> 을 근본적으로 해소합니다.',
   },
   benefits: {
     items: [
@@ -199,7 +199,7 @@ const data = {
       {
         tname: "FISH - SAFE ICE",
         name: "SEASNOW",
-        desc: "어류 친화 1% 염도 슬러시 아이스",
+        desc: "어류 친화 1% 염도 슬러리 아이스",
         path: "/seasnow",
         image: "/images/seasnow.png",
       },

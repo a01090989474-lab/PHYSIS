@@ -26,17 +26,13 @@
   }
 
   &__title {
-    font-size: 40px;
+    font-size: fluid(24, 40);
     font-weight: 600;
     margin-bottom: 20px;
-
-    @include respond-to(lg) {
-      font-size: $font-size-2xl;
-    }
   }
 
   &__desc {
-    font-size: 20px;
+    font-size: fluid(15, 20);
     color: $bg-color;
   }
 }

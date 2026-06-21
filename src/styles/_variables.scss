@@ -6,24 +6,16 @@ $color-primary: #0f4698;
 
 // Layout
 $header-height: 100px;
-$section-pad-h: 170px;
 $section-pad-v: 5rem;
 
-// Breakpoints
+// Breakpoints (구조적 레이아웃 전환에만 사용 — 크기 보간은 fluid()로 처리)
 $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
 
-// Font sizes
-$font-size-xs: 14px;
-$font-size-sm: 16px;
-$font-size-base: 16px;
-$font-size-md: 18px;
-$font-size-lg: 20px;
-$font-size-xl: 24px;
-$font-size-2xl: 32px;
-$font-size-3xl: 40px;
-$font-size-4xl: 56px;
+// Fluid scaling 기준폭 (이 사이에서 폰트·이미지 크기가 뷰포트에 비례해 보간됨)
+$fluid-min-vw: 375;
+$fluid-max-vw: 1920;
 
 // Colors
 $color-blue-light: #e8edf8;

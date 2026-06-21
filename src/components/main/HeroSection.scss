@@ -1,11 +1,12 @@
 @use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 .hero {
   position: relative;
   width: 100%;
   max-width: 1820px;
   margin: 100px auto;
-  height: 600px;
+  height: fluid(360, 600);
   overflow: hidden;
   border-radius: 50px;
 
@@ -34,31 +35,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 $section-pad-h;
+    padding: 0 fluid(20, 170);
   }
 
   &__temp {
-    font-size: 60px;
+    font-size: fluid(30, 60);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__title {
-    font-size: 50px;
+    font-size: fluid(25, 50);
     font-weight: 600;
     color: $text-color;
     margin-bottom: 40px;
   }
 
   &__desc {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     color: $text-color;
     margin-bottom: 8px;
   }
 
   &__desc_en {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: $text-color;
     margin-bottom: 45px;
   }
@@ -70,7 +71,7 @@
 
   &__btn {
     padding: 10px 36px;
-    font-size: 21px;
+    font-size: fluid(15, 21);
     border: none;
     border-radius: 50px;
     cursor: pointer;

@@ -25,9 +25,9 @@ const data = {
     title: "KURABAN",
     subtitle: (
       <>
-        <strong>비열 전기장</strong>을 이용해 −2℃ 부근에서 식품을
+        <strong>비열 전기장</strong>을 이용해 −2℃ 부근에서 식품을 얼리지 않고
         <br />
-        얼리지 않고 살아있는 상태로 보존하는 차세대 냉장 시스템입니다.
+        살아있는 상태로 보존하는 차세대 냉장 시스템
         <br />
         <br />
         일본 MARS Company의 N-Te-Fe 기술 기반.
@@ -222,7 +222,7 @@ const data = {
       {
         tname: "FISH - SAFE ICE",
         name: "SEASNOW",
-        desc: "어류 친화 1% 염도 슬러시 아이스",
+        desc: "어류 친화 1% 염도 슬러리 아이스",
         path: "/seasnow",
         image: "/images/seasnow.png",
       },

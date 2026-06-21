@@ -9,14 +9,14 @@
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }
@@ -26,6 +26,12 @@
     display: flex;
     gap: 20px;
     align-items: flex-start;
+
+    @include respond-to(md) {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
   }
 
   @keyframes fadeInUp {
@@ -48,9 +54,17 @@
 
     &--up {
       margin-top: 100px;
+
+      @include respond-to(md) {
+        margin-top: 0;
+      }
     }
     &--down {
       margin-top: 200px;
+
+      @include respond-to(md) {
+        margin-top: 0;
+      }
     }
 
     &--visible {
@@ -60,7 +74,7 @@
 
     &-img {
       width: 100%;
-      height: 450px;
+      height: fluid(260, 450);
       object-fit: cover;
     }
 
@@ -94,12 +108,12 @@
     }
 
     &-label {
-      font-size: 21px;
+      font-size: fluid(15, 21);
       color: $bg-color;
       margin-bottom: 6px;
     }
     &-desc {
-      font-size: 18px;
+      font-size: fluid(15, 18);
       color: $bg-color;
       line-height: 1.2;
     }
@@ -135,7 +149,7 @@
   }
 
   &__solution-label {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: $color-primary;
     margin-bottom: 60px;
     display: flex;
@@ -152,14 +166,14 @@
   }
 
   &__solution-title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__solution-sub {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     color: rgba($text-color, 0.5);
     font-weight: 300;
     margin-bottom: 80px;
@@ -169,6 +183,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: left;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
   }
 
   &__solution-item {
@@ -182,25 +201,38 @@
       border-right: none;
       padding-right: 0;
     }
+
+    @include respond-to(md) {
+      padding: 0 0 24px;
+      border-right: none;
+      border-bottom: 1px solid rgba($text-color, 0.1);
+
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
   }
 
   &__solution-item-number {
-    font-size: 16px;
+    font-size: fluid(14, 16);
     color: rgba($text-color, 0.5);
     font-weight: 300;
     margin-bottom: 20px;
   }
 
   &__solution-item-label {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     font-weight: 500;
     color: $color-primary;
     margin-bottom: 8px;
-    white-space: nowrap;
   }
 
   &__solution-item-desc {
-    font-size: 18px;
+    font-size: fluid(15, 18);
     color: $text-color;
     line-height: 1.2;
   }

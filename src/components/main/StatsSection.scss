@@ -23,6 +23,20 @@
       width: 1px;
       background: rgba($text-color, 0.2);
     }
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__empty-cell {
+    @include respond-to(md) {
+      display: none;
+    }
   }
 
   &__header-cell {
@@ -31,14 +45,14 @@
   }
 
   &__title {
-    font-size: 26px;
+    font-size: fluid(18, 26);
     font-weight: 500;
     color: $text-color;
     margin-bottom: 10px;
   }
 
   &__subtitle {
-    font-size: 21px;
+    font-size: fluid(15, 21);
     font-weight: 300;
     color: rgba($text-color, 0.5);
   }
@@ -63,6 +77,16 @@
         height: 1px;
         background: rgba($text-color, 0.2);
       }
+
+      @include respond-to(md) {
+        padding-left: 0;
+        margin-top: 0;
+        border-bottom: 1px solid rgba($text-color, 0.2);
+
+        &::after {
+          display: none;
+        }
+      }
     }
 
     &--last {
@@ -71,13 +95,13 @@
   }
 
   &__prefix {
-    font-size: 24px;
+    font-size: fluid(17, 24);
     font-weight: 500;
     color: $text-color;
   }
 
   &__number {
-    font-size: 70px;
+    font-size: fluid(36, 70);
     font-weight: 500;
     color: $color-primary;
     line-height: 1;
@@ -85,12 +109,12 @@
   }
 
   &__unit {
-    font-size: 70px;
+    font-size: fluid(36, 70);
     font-weight: 500;
   }
 
   &__desc {
-    font-size: 24px;
+    font-size: fluid(17, 24);
     color: $text-color;
   }
 }

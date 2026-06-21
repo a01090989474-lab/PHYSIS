@@ -1,4 +1,26 @@
+import { useEffect, useRef, useState } from "react";
 import "./AboutMission.scss";
+
+function useReveal(threshold = 0.15) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, visible];
+}
 
 const cards = [
   {
@@ -16,13 +38,21 @@ const cards = [
 ];
 
 export default function AboutMission() {
-  return (
-    <section className="about-mission">
-      <div className="about-mission__inner">
-        <p className="about-mission__label">MISSION &amp; IDENTITY</p>
-        <h2 className="about-mission__title">PHYSIS의 비전</h2>
+  const [ref, visible] = useReveal();
 
-        <div className="about-mission__banner">
+  return (
+    <section className="about-mission" ref={ref}>
+      <div className="about-mission__inner">
+        <div
+          className={`about-mission__head${visible ? " about-mission__head--visible" : ""}`}
+        >
+          <p className="about-mission__label">MISSION &amp; IDENTITY</p>
+          <h2 className="about-mission__title">PHYSIS의 비전</h2>
+        </div>
+
+        <div
+          className={`about-mission__banner${visible ? " about-mission__banner--visible" : ""}`}
+        >
           <p className="about-mission__banner-text">
             최신 기술과 데이터를 바탕으로 끊임없이 연구하고 혁신하여,
             <br />
@@ -31,7 +61,9 @@ export default function AboutMission() {
           </p>
         </div>
 
-        <div className="about-mission__cards">
+        <div
+          className={`about-mission__cards${visible ? " about-mission__cards--visible" : ""}`}
+        >
           {cards.map((c) => (
             <div key={c.tag} className="about-mission__card">
               <div className="about-mission__card-icon">{c.icon}</div>
